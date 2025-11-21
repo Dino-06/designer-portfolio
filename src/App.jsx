@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight, Rss, Mail, Linkedin, Dribbble, Twitter } from 'lucide-react';
 
 // --- SIMULATED PROJECT DATA (Replaces Headless CMS Fetch) ---
-// I've added two extra projects here to test the 'Show More' functionality (total 5).
 const allProjects = [
   {
     id: 'project-1',
@@ -411,22 +410,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-white font-sans">
-      {/* Tailwind Setup (Required for using Tailwind classes without external setup) */}
-      <script src="https://cdn.tailwindcss.com"></script>
-      <script>
-        {`
-          tailwind.config = {
-            theme: {
-              extend: {
-                fontFamily: {
-                  sans: ['Inter', 'sans-serif'],
-                },
-              },
-            },
-          };
-        `}
-      </script>
-
+      
       <Header scrollToSection={scrollToSection} />
       <main>
         <Hero scrollToSection={scrollToSection} />
