@@ -2,7 +2,7 @@
 module.exports = {
   // CRITICAL: This tells Tailwind where to scan for CSS classes (all HTML, JS, JSX, TSX files)
   content: [
-    "./index.html",
+    "./index.css",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
