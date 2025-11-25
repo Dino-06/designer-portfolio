@@ -8,7 +8,7 @@ import { Menu, X, ArrowRight, Rss, Mail, Linkedin, Dribbble, Twitter, ArrowLeft 
 // --- SIMULATED PROJECT DATA (Replaces Headless CMS Fetch) ---
 const allProjects = [
   {
-    id: 'project-1',
+    id: 'project-1', 
     title: 'FlowState App: Meditation & Sleep',
     category: 'UI/UX Mobile App',
     year: '2024',
