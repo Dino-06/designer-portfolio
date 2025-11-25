@@ -255,7 +255,7 @@ const ProjectCard = ({ project, openCaseStudy }) => {
           <span className={`inline-block px-3 py-1 text-xs font-semibold rounded-full text-white mb-2 ${project.accentColor || 'bg-indigo-600'}`}>
             {project.category}
           </span>
-          <h3 className="2xl font-bold text-white mb-1 leading-snug">{project.title}</h3>
+          <h3 className="text-2xl font-bold text-white mb-1 leading-snug">{project.title}</h3>
           <p className="text-gray-300 text-sm">{project.year}</p>
         </div>
       </div>
@@ -573,6 +573,19 @@ const CaseStudyModal = ({ project, isModalOpen, closeCaseStudy }) => {
 
                 </div>
             </div>
+            {/* Adding the CDN script here for guaranteed local styling */}
+            <script src="https://cdn.tailwindcss.com"></script>
+            <script>
+                tailwind.config = {
+                    theme: {
+                        extend: {
+                            fontFamily: {
+                                sans: ['Inter', 'sans-serif'],
+                            },
+                        }
+                    }
+                }
+            </script>
         </div>
     );
 };

@@ -1,8 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx' 
-import './dist/tailwind.css' // <-- CHANGE: Importing the compiled CSS file
-import './index.css' // <-- REMOVE THIS LINE IF IT EXISTS (it's no longer needed)
+import './index.css' // <-- NOTE: We will use index.css for local dev, but the build script uses dist/tailwind.css
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
