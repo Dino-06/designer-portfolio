@@ -1,13 +1,551 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>designer-portfolio</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Designer Name] - Digital Portfolio</title>
+    <!-- Tailwind CSS CDN for guaranteed styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            color: #1f2937; /* Default text gray-900 */
+        }
+
+        /* Class to hide body scroll when modal is open */
+        .modal-open {
+            overflow: hidden;
+        }
+
+        /* Styling for smooth transition on main content */
+        .main-content-transition {
+            transition: opacity 300ms ease-out;
+        }
+
+        /* Custom scrollbar for modal on WebKit browsers */
+        .modal-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .modal-content::-webkit-scrollbar-thumb {
+            background-color: #6366f1; /* Indigo-500 */
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Case Study Modal (Positioned outside the main content) -->
+    <div id="case-study-modal" class="fixed inset-0 z-[100] bg-white overflow-y-scroll transition-transform duration-300 ease-in-out transform translate-x-full" style="display: none;">
+        <!-- Content will be injected here by JavaScript -->
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <div id="main-content-wrapper" class="main-content-transition">
+
+        <!-- Header -->
+        <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+            <div class="container mx-auto px-6 max-w-7xl">
+                <div class="flex justify-between items-center py-4">
+                    <div id="logo-link" class="text-2xl font-extrabold tracking-tight cursor-pointer" onclick="scrollToSection('hero')">
+                        [Designer Name]
+                    </div>
+                    <!-- Desktop Navigation -->
+                    <nav class="hidden md:flex space-x-8 font-medium">
+                        <a href="#work" onclick="handleNavClick(event, 'work')" class="nav-item">Work</a>
+                        <a href="#about" onclick="handleNavClick(event, 'about')" class="nav-item">About</a>
+                        <a href="#contact" onclick="handleNavClick(event, 'contact')" class="nav-item">Contact</a>
+                    </nav>
+                    <!-- Mobile Menu Button - simplified -->
+                    <button class="md:hidden p-2 text-gray-700 rounded-lg hover:bg-gray-100 transition" aria-label="Toggle navigation menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Hero Section -->
+            <section id="hero" class="py-16 md:py-24 container mx-auto px-6 max-w-7xl min-h-[calc(100vh-6rem)] flex items-center justify-center text-center">
+                <div class="max-w-4xl">
+                    <h1 class="text-6xl md:text-8xl font-black mb-6 leading-tight">
+                        Designing <span class="text-indigo-600">Intuitive</span> Digital Experiences.
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-600 mb-10 font-light">
+                        I am a UX/UI Designer specializing in clean, human-centered interfaces that drive business goals and delight users. Let's build something impactful.
+                    </p>
+                    <button 
+                        onclick="scrollToSection('work')"
+                        class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-xl text-white bg-indigo-600 hover:bg-indigo-700 transition duration-300 transform hover:scale-[1.02]"
+                    >
+                        View My Work 
+                        <svg class="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Work Section (Rendered by JS) -->
+            <section id="work" class="py-16 md:py-24 container mx-auto px-6 max-w-7xl">
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-12 text-center">Selected Work</h2>
+                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Cards will be injected here -->
+                </div>
+                <div id="work-actions" class="text-center mt-8">
+                    <!-- Show More/Less button will be injected here -->
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="py-16 md:py-24 container mx-auto px-6 max-w-7xl bg-gray-50 -mx-6 px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+                    <div class="lg:col-span-2">
+                        <h2 class="text-4xl md:text-5xl font-extrabold mb-8">Hello, I'm [Designer Name]</h2>
+                        <p class="text-lg text-gray-700 mb-6 leading-relaxed">I am a multidisciplinary designer with 8+ years of experience crafting digital products from concept to launch. My philosophy centers on **empathy and data-driven design**, ensuring every interface is not just beautiful, but highly functional and accessible.</p>
+                        <div class="mt-8">
+                            <h3 class="text-2xl font-bold mb-4">Core Skills</h3>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="skill-tag">User Research</span>
+                                <span class="skill-tag">Wireframing</span>
+                                <span class="skill-tag">Prototyping (Figma/Sketch)</span>
+                                <span class="skill-tag">Design Systems</span>
+                                <span class="skill-tag">Mobile UI</span>
+                                <span class="skill-tag">Web UX</span>
+                                <span class="skill-tag">Interaction Design</span>
+                                <span class="skill-tag">Accessibility (WCAG)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-1 flex justify-center lg:justify-end">
+                        <div class="w-full max-w-sm bg-white p-6 rounded-xl shadow-2xl">
+                            <img
+                                src="https://placehold.co/400x400/1f2937/f3f4f6?text=Designer+Portrait"
+                                alt="Designer Portrait"
+                                class="w-full h-auto rounded-lg mb-4 object-cover"
+                                onerror="this.onerror=null; this.src='https://placehold.co/400x400/1f2937/f3f4f6?text=Designer+Portrait';"
+                            />
+                            <p class="text-sm text-gray-500 italic">"Design is not just what it looks like and feels like. Design is how it works."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="py-16 md:py-24 container mx-auto px-6 max-w-7xl">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Let's Connect</h2>
+                    <p class="text-xl text-gray-600 mb-10">
+                        I am currently open to new opportunities and collaborations. Whether you need a full-time lead designer or consultation on a challenging UX problem, drop me a line.
+                    </p>
+                    
+                    <a 
+                        href="mailto:hello@designername.com"
+                        class="inline-flex items-center justify-center px-10 py-4 border-2 border-indigo-600 text-lg font-semibold rounded-full text-indigo-600 hover:bg-indigo-50 transition duration-300 transform hover:scale-[1.02]"
+                    >
+                        <svg class="mr-3 h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-2-3a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V5z"></path></svg>
+                        hello@designername.com
+                    </a>
+                    
+                    <div class="flex justify-center space-x-6 mt-12">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.344-4 0v5.604h-3v-11h3v1.765c1.397-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Dribbble">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12c6.627 0 12-5.373 12-12S18.627 0 12 0zm7.108 5.485c-.47-.14-3.237-1.144-6.33 1.251-1.076.837-1.84 2.147-1.928 2.378-.088.232-.206 1.13.232 2.018.438.887 2.018 2.23 4.228 2.23 2.21 0 3.284-.658 3.722-1.545.438-.888-.307-2.589-1.545-5.356-.887-1.928-2.617-2.765-3.056-2.906zm-7.66 9.61c-.538.088-2.531 1.077-4.228 1.077-2.018 0-3.14-.99-3.281-1.13-.14-.14-.658-1.545 1.251-4.087 1.909-2.542 4.414-2.883 4.851-2.795.438.088.384 1.223-.538 2.542-.922 1.319-2.454 2.147-3.084 2.147-.63 0-1.13-.198-1.13-.198s.14-.11 1.028-.795c.887-.685 1.764-1.223 1.874-1.251.11-.028.607-.267 1.347.458.74.725 1.764 2.147 1.764 2.147z"/></svg>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 4.557c-.883.392-1.832.656-2.822.772 1.017-.609 1.795-1.574 2.164-2.722-.951.554-2.005.959-3.127 1.171-1.782-1.916-4.704-1.054-5.264 1.109-.56 2.163.659 4.316 2.822 4.881-1.15.04-2.226-.23-3.2-.81-.595 1.838.824 3.329 2.5 3.731-1.044.82-2.36.992-3.665.485-2.049 1.637-4.968 1.221-5.748-1.059-.44-.228-.847-.492-1.206-.789 1.168 3.55 4.67 4.908 7.643 3.666 4.664-1.916 7.643-6.524 7.643-11.411 0-.17-.005-.34-.012-.508.97-.698 1.808-1.564 2.476-2.548z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white">
+            <div class="container mx-auto px-6 max-w-7xl py-12">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-xl font-bold mb-4 md:mb-0 cursor-pointer" onclick="scrollToSection('hero')">
+                        [Designer Name]
+                    </div>
+                    <div class="text-sm text-gray-400">
+                        &copy; <span id="current-year"></span> All rights reserved. | Designed for clarity and speed.
+                    </div>
+                    <div class="flex space-x-4 mt-4 md:mt-0">
+                        <a href="#work" onclick="handleNavClick(event, 'work')" class="text-sm text-gray-400 hover:text-indigo-400 transition">Work</a>
+                        <a href="#about" onclick="handleNavClick(event, 'about')" class="text-sm text-gray-400 hover:text-indigo-400 transition">About</a>
+                        <a href="#contact" onclick="handleNavClick(event, 'contact')" class="text-sm text-gray-400 hover:text-indigo-400 transition">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    
+    <script>
+        // --- DATA ---
+        const ALL_PROJECTS = [
+            // Project 1
+            {
+                id: 'project-1', title: 'FlowState App: Meditation & Sleep', category: 'UI/UX Mobile App', year: '2024',
+                heroImage: 'https://placehold.co/800x600/1e293b/f1f5f9?text=FlowState+Mobile+Hero', accentColor: 'bg-indigo-600', 
+                caseStudy: {
+                    client: 'FlowState Wellness', role: 'Lead UX/UI Designer', duration: '4 Months',
+                    brief: 'A complete redesign of a mindfulness application focused on reducing friction in the daily tracking process and enhancing the visual language for a calm user experience.',
+                    sections: [
+                        { id: 'problem', title: '01. The Problem & Goal', content: 'The existing app suffered from high churn rates (35% after the first week) primarily due to an overwhelming onboarding process and a dated visual style that lacked emotional connection. The core goal was to simplify the daily tracking routine to increase retention and daily active usage (DAU) by 20%.', media: 'https://placehold.co/1200x600/334155/e2e8f0?text=UX+Wireframing+and+User+Flows' },
+                        { id: 'research', title: '02. User Research & Flows', content: 'We conducted qualitative interviews with 20 active users and built new user flow maps, finding that the key moment of friction was choosing a guided session. The initial step was consolidating decision points and creating an intuitive "Quick Start" button.' },
+                        { id: 'visual', title: '04. Visual Design & System', content: 'I developed a soft, dark-mode-first design system using gentle curves and large, legible typography (Figtree). The visual style was minimal, using subtle gradients to create depth without distraction. This premium aesthetic was designed to evoke calm and focus.', media: 'https://placehold.co/1200x700/6366f1/ffffff?text=FlowState+Final+UI+Mockups' },
+                    ],
+                }
+            },
+            // Project 2
+            {
+                id: 'project-2', title: 'Evolve Agency: Corporate Rebrand', category: 'Visual Identity & Web Design', year: '2023',
+                heroImage: 'https://placehold.co/800x450/475569/f8fafc?text=Evolve+Web+Design+Hero', accentColor: 'bg-green-600',
+                caseStudy: {
+                    client: 'Evolve Marketing', role: 'Visual Designer', duration: '2 Months',
+                    brief: 'A full-scale digital and visual identity rebrand for a marketing agency, establishing authority and modernity in their segment.',
+                    sections: [
+                        { id: 'problem', title: '01. The Dated Brand', content: 'The old brand identity felt stale and didn\'t convey the agency\'s cutting-edge work. The goal was to create a modular, adaptable visual system that works across digital and print.' },
+                        { id: 'strategy', title: '02. Color & Typography Strategy', content: 'We moved to a deep navy and forest green palette to evoke trust and growth, paired with a sharp, geometric sans-serif font for professionalism. The website design focused on bold, asymmetrical content blocks.', media: 'https://placehold.co/1200x700/065f46/d1fae5?text=Brand+Identity+Guide+Cover' },
+                    ],
+                }
+            },
+            // Project 3
+            {
+                id: 'project-3', title: 'Local Market: E-commerce Platform', category: 'UX Research & E-commerce UI', year: '2023',
+                heroImage: 'https://placehold.co/800x550/1f2937/f3f4f6?text=Local+Market+E-commerce+UI', accentColor: 'bg-yellow-600',
+                caseStudy: {
+                    client: 'Farm-to-Table Collective', role: 'UX Consultant', duration: '3 Months',
+                    brief: 'Designing an accessible and localized e-commerce platform for farmers and local producers, optimizing checkout conversion for a diverse user base.',
+                    sections: [
+                        { id: 'problem', title: '01. Accessibility Challenge', content: 'A strong focus was placed on WCAG AA compliance and a mobile-first approach due to the target demographic. Early user testing revealed critical friction points in the payment and delivery scheduling steps.', media: 'https://placehold.co/1200x500/78716c/fff7ed?text=User+Testing+Findings+Chart' },
+                        { id: 'solution', title: '02. Streamlined Checkout', content: 'The solution was a simplified, three-step checkout process with large, clear button states and strong input validation. We also introduced a clear "local delivery map" visual to manage user expectations.', media: 'https://placehold.co/1200x700/f59e0b/000000?text=Mobile+Checkout+Flow+Optimization' }
+                    ],
+                }
+            },
+            // Project 4
+            { 
+                id: 'project-4', title: 'Aero SaaS: Data Visualization', category: 'UI/UX Dashboard', year: '2023', 
+                heroImage: 'https://placehold.co/800x600/111827/d1d5db?text=Aero+SaaS+Dashboard+Hero', accentColor: 'bg-red-600', 
+                caseStudy: { 
+                    client: 'Aero Dynamics', role: 'UI Lead', duration: '5 Months',
+                    brief: 'Designing a complex SaaS dashboard for data visualization, focusing on clarity, speed, and customization for enterprise users.',
+                    sections: [
+                        { id: 'challenge', title: '01. Data Density Challenge', content: 'The primary challenge was managing information density without causing cognitive overload. We implemented a modular widget system and dark mode interface to reduce eye strain during long working hours.', media: 'https://placehold.co/1200x800/dc2626/fef2f2?text=SaaS+Dashboard+Dark+Mode+View' },
+                    ],
+                }
+            },
+            // Project 5
+            { 
+                id: 'project-5', title: 'Venture Fund: Investor Portal', category: 'Web UX/UI', year: '2022', 
+                heroImage: 'https://placehold.co/800x450/4f46e5/ffffff?text=Venture+Portal+UX', accentColor: 'bg-pink-600', 
+                caseStudy: { 
+                    client: 'Ascend Capital', role: 'UX Designer', duration: '3 Months',
+                    brief: 'Creating a secure, high-end investor portal to manage fund performance, documents, and communication.',
+                    sections: [
+                        { id: 'security', title: '01. Security & Trust', content: 'Security and trust were paramount. The design utilized a highly structured layout with clean, authoritative typography and minimal colors to project confidence and stability.', media: 'https://placehold.co/1200x600/be185d/fce7f3?text=Investor+Portal+Security+Features' },
+                    ],
+                }
+            },
+            // Project 6
+            { 
+                id: 'project-6', title: 'Aura Campaign: Lifestyle Visuals', category: 'Social Media Design', year: '2024', 
+                heroImage: 'https://placehold.co/800x600/a855f7/f3e8ff?text=Social+Campaign+Visuals', accentColor: 'bg-purple-600', 
+                caseStudy: { 
+                    client: 'Aura Fitness', role: 'Visual Design Lead', duration: '1 Month',
+                    brief: 'Development of a fresh, dynamic visual language for a 30-day Instagram campaign focused on wellness and hydration, designed to increase engagement and drive sign-ups.',
+                    sections: [
+                        { id: 'goal', title: '01. Campaign Goals & Aesthetics', content: 'The primary goal was a 50% increase in post saves and shares. We defined a soft, ethereal aesthetic using pastel gradients and clean, minimal typography, moving away from standard stock imagery.', media: 'https://placehold.co/1200x700/7c3aed/f3e8ff?text=Instagram+Feed+Mockup+-+Aura+Campaign' },
+                    ],
+                }
+            },
+            // Project 7
+            { 
+                id: 'project-7', title: 'QuickPost Templates: B2B Focus', category: 'Content Design System', year: '2023', 
+                heroImage: 'https://placehold.co/800x600/15803d/dcfce7?text=B2B+LinkedIn+Templates', accentColor: 'bg-emerald-700', 
+                caseStudy: { 
+                    client: 'QuickPost SaaS', role: 'UX/Content Designer', duration: '6 Weeks',
+                    brief: 'Designing a modular template system for LinkedIn and Twitter aimed at accelerating content creation for a B2B SaaS marketing team while maintaining brand consistency.',
+                    sections: [
+                        { id: 'challenge', title: '01. Speed and Consistency', content: 'The marketing team struggled with slow content turnaround and inconsistent visual branding across channels. The objective was to design a system that allowed non-designers to produce branded content in under 5 minutes.', media: 'https://placehold.co/1200x500/059669/d1fae5?text=Modular+Template+Breakdown' },
+                    ],
+                }
+            },
+        ];
+
+        // --- STATE & UTILITIES ---
+        let visibleCount = 4;
+        const INITIAL_LIMIT = 3;
+        let cardToScrollTo = null;
+        let isModalAnimating = false;
+
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function handleNavClick(event, id) {
+            event.preventDefault();
+            scrollToSection(id);
+        }
+
+        // --- RENDER FUNCTIONS ---
+
+        function renderProjectCard(project) {
+            const card = document.createElement('div');
+            card.id = `project-card-${project.id}`;
+            card.className = "relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out cursor-pointer group";
+            card.onclick = () => openCaseStudy(project.id);
+            
+            card.innerHTML = `
+                <img
+                    src="${project.heroImage}"
+                    alt="${project.title} hero"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-hover:opacity-80"
+                    onerror="this.onerror=null; this.src='https://placehold.co/800x600/6366f1/ffffff?text=Project+Mockup';"
+                />
+                <div class="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black/80 to-transparent transition-opacity duration-300">
+                    <div class="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                        <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full text-white mb-2 ${project.accentColor || 'bg-indigo-600'}">
+                            ${project.category}
+                        </span>
+                        <h3 class="text-2xl font-bold text-white mb-1 leading-snug">${project.title}</h3>
+                        <p class="text-gray-300 text-sm">${project.year}</p>
+                    </div>
+                </div>
+            `;
+            return card;
+        }
+
+        function renderWorkSection() {
+            const grid = document.getElementById('projects-grid');
+            const actions = document.getElementById('work-actions');
+            grid.innerHTML = '';
+            actions.innerHTML = '';
+
+            const projectsToShow = ALL_PROJECTS.slice(0, visibleCount);
+
+            projectsToShow.forEach(project => {
+                grid.appendChild(renderProjectCard(project));
+            });
+
+            const remainingCount = ALL_PROJECTS.length - visibleCount;
+            const isExpanded = visibleCount === ALL_PROJECTS.length;
+
+            if (remainingCount > 0 && !isExpanded) {
+                // Render "See More" placeholder card
+                grid.innerHTML += `
+                    <div 
+                        class="flex flex-col items-center justify-center p-8 rounded-xl border-4 border-dashed border-gray-300 text-gray-500 transition-colors duration-300 hover:border-indigo-400 hover:text-indigo-600 cursor-pointer"
+                        onclick="handleShowMore()"
+                    >
+                        <svg class="w-9 h-9 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 5c-1.333 0-2 .67-2 2v10c0 1.33.67 2 2 2h12c1.33 0 2-.67 2-2V7c0-1.33-.67-2-2-2H6zM4 11h16m-4 4h-8"></path></svg>
+                        <p class="text-lg font-semibold text-center">See More Projects</p>
+                        <p class="text-sm text-center">${remainingCount} more pieces of work.</p>
+                    </div>
+                `;
+
+                // Render Show All Button (redundant but kept for completeness)
+                actions.innerHTML += `
+                    <button
+                        onclick="handleShowMore()"
+                        class="inline-flex items-center justify-center px-6 py-3 border border-indigo-600 text-base font-medium rounded-full text-indigo-600 hover:bg-indigo-50 transition duration-300 shadow-md"
+                    >
+                        Show All ${ALL_PROJECTS.length} Projects
+                    </button>
+                `;
+            } else if (isExpanded && ALL_PROJECTS.length > INITIAL_LIMIT) {
+                 // Render Show Less Button
+                actions.innerHTML += `
+                    <button
+                        onclick="handleCollapse()"
+                        class="inline-flex items-center justify-center px-6 py-3 bg-indigo-600 border border-indigo-600 text-base font-medium rounded-full text-white hover:bg-indigo-700 transition duration-300 shadow-md"
+                    >
+                        Show Less
+                    </button>
+                `;
+            }
+        }
+
+        function handleShowMore() {
+            visibleCount = ALL_PROJECTS.length;
+            renderWorkSection();
+        }
+
+        function handleCollapse() {
+            visibleCount = INITIAL_LIMIT;
+            renderWorkSection();
+            scrollToSection('work');
+        }
+
+        // --- MODAL LOGIC ---
+
+        function getCaseStudyHTML(project) {
+            const sectionsHTML = project.caseStudy.sections.map(section => {
+                const mediaHTML = section.media ? `
+                    <img 
+                        src="${section.media}"
+                        alt="Mockup for ${section.title}"
+                        class="w-full rounded-xl shadow-2xl transition duration-500 hover:scale-[1.005]"
+                        onerror="this.onerror=null; this.src='https://placehold.co/1200x600/111827/d1d5db?text=Design+Mockup+Placeholder';"
+                    />
+                ` : '';
+                return `
+                    <div id="${section.id}" class="group pt-2">
+                        <p class="text-sm font-semibold text-indigo-600 mb-2">${section.title}</p>
+                        <h2 class="text-4xl font-extrabold mb-6 text-gray-900">${section.title.split('. ')[1] || section.title}</h2>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-8">${section.content}</p>
+                        ${mediaHTML}
+                    </div>
+                `;
+            }).join('');
+
+            const navLinksHTML = project.caseStudy.sections.map(section => `
+                <a 
+                    href="#${section.id}" 
+                    onclick="event.preventDefault(); document.getElementById('${section.id}').scrollIntoView({ behavior: 'smooth' });"
+                    class="text-gray-600 hover:text-indigo-600 transition"
+                >
+                    ${section.title.split('. ')[1] || section.title}
+                </a>
+            `).join('');
+
+            return `
+                <div class="container mx-auto px-6 max-w-7xl">
+                    <!-- Fixed Top Bar for Navigation and Close -->
+                    <div class="sticky top-0 z-10 bg-white/95 backdrop-blur-sm py-4 border-b border-gray-200 flex justify-between items-center">
+                        <button 
+                            onclick="closeCaseStudy()"
+                            class="flex items-center text-indigo-600 hover:text-indigo-800 transition duration-300 font-semibold text-base md:text-lg"
+                        >
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                            Back to Work Index
+                        </button>
+                        <nav class="hidden sm:flex space-x-4 text-sm">
+                            ${navLinksHTML}
+                        </nav>
+                    </div>
+
+                    <!-- Case Study Content -->
+                    <div class="pt-12 pb-24 max-w-5xl mx-auto">
+                        <!-- Hero -->
+                        <header class="text-center mb-16">
+                            <span class="text-sm font-medium text-gray-500 uppercase tracking-wider">${project.category} - ${project.year}</span>
+                            <h1 id="modal-title" class="text-5xl md:text-7xl font-black mt-3 mb-6 leading-tight text-gray-900">${project.title}</h1>
+                            <p class="text-xl text-gray-600 italic max-w-3xl mx-auto">${project.caseStudy.brief}</p>
+                            <div class="mt-8 flex justify-center space-x-6 text-gray-600 text-sm">
+                                <span>**Client:** ${project.caseStudy.client}</span>
+                                <span>**Role:** ${project.caseStudy.role}</span>
+                                <span>**Duration:** ${project.caseStudy.duration}</span>
+                            </div>
+                        </header>
+
+                        <!-- Sections (The Narrative) -->
+                        <div class="space-y-20">
+                            ${sectionsHTML}
+                        </div>
+
+                        <!-- Final CTA -->
+                        <div class="mt-20 pt-10 border-t border-gray-300 text-center">
+                            <p class="text-2xl font-bold text-gray-800 mb-6">Ready to discuss your next project?</p>
+                            <button 
+                                onclick="closeCaseStudy()"
+                                class="inline-flex items-center justify-center px-8 py-3 bg-indigo-600 border border-indigo-600 text-base font-medium rounded-full text-white hover:bg-indigo-700 transition duration-300 shadow-lg"
+                            >
+                                Back to Index
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function openCaseStudy(projectId) {
+            if (isModalAnimating) return;
+            isModalAnimating = true;
+
+            const project = ALL_PROJECTS.find(p => p.id === projectId);
+            if (!project) return;
+
+            // 1. Save scroll position and card ID
+            window.scrollPosition = window.scrollY;
+            cardToScrollTo = projectId;
+
+            const modal = document.getElementById('case-study-modal');
+            const mainContent = document.getElementById('main-content-wrapper');
+
+            // 2. Populate modal content and make it visible
+            modal.innerHTML = getCaseStudyHTML(project);
+            modal.style.display = 'block';
+
+            // 3. Lock background scroll and dim main content
+            document.body.classList.add('modal-open');
+            mainContent.classList.add('opacity-50', 'pointer-events-none');
+            
+            // 4. Start slide-in animation
+            setTimeout(() => {
+                modal.classList.remove('translate-x-full');
+                isModalAnimating = false;
+            }, 10);
+        }
+
+        function closeCaseStudy() {
+            if (isModalAnimating) return;
+            isModalAnimating = true;
+
+            const modal = document.getElementById('case-study-modal');
+            const mainContent = document.getElementById('main-content-wrapper');
+
+            // 1. Start slide-out animation
+            modal.classList.add('translate-x-full');
+
+            // 2. Wait for the animation to finish (300ms)
+            setTimeout(() => {
+                // 3. Unlock background scroll and restore main content
+                document.body.classList.remove('modal-open');
+                mainContent.classList.remove('opacity-50', 'pointer-events-none');
+                modal.style.display = 'none';
+                
+                // 4. Scroll restoration fix (guaranteed return to clicked card)
+                const cardElement = document.getElementById(`project-card-${cardToScrollTo}`);
+                if (cardElement) {
+                    cardElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                cardToScrollTo = null;
+                isModalAnimating = false;
+            }, 300);
+        }
+
+
+        // --- INITIALIZATION ---
+        window.onload = function() {
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            renderWorkSection();
+            
+            // Apply skill tags formatting using JS since we are in pure HTML/JS
+            document.querySelectorAll('.skill-tag').forEach(el => {
+                el.className = "px-4 py-2 bg-white text-gray-800 border border-gray-200 rounded-full text-sm font-medium shadow-sm";
+            });
+
+            // Apply social link formatting
+            document.querySelectorAll('.social-link').forEach(el => {
+                el.className = "text-gray-500 hover:text-indigo-600 transition duration-300 p-3 rounded-full hover:bg-indigo-50 inline-block";
+            });
+            
+            // Keyboard ESC listener for modal closing
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && document.getElementById('case-study-modal').style.display !== 'none') {
+                    closeCaseStudy();
+                }
+            });
+        };
+    </script>
+</body>
 </html>
