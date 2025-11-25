@@ -1,14 +1,10 @@
-function App() {
-  const [count, setCount] = useState(0)
-  
-import './App.css'
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Menu, X, ArrowRight, Rss, Mail, Linkedin, Dribbble, Twitter, ArrowLeft } from 'lucide-react';
 
 // --- SIMULATED PROJECT DATA (Replaces Headless CMS Fetch) ---
 const allProjects = [
   {
-    id: 'project-1', 
+    id: 'project-1',
     title: 'FlowState App: Meditation & Sleep',
     category: 'UI/UX Mobile App',
     year: '2024',
@@ -259,7 +255,7 @@ const ProjectCard = ({ project, openCaseStudy }) => {
           <span className={`inline-block px-3 py-1 text-xs font-semibold rounded-full text-white mb-2 ${project.accentColor || 'bg-indigo-600'}`}>
             {project.category}
           </span>
-          <h3 className="text-2xl font-bold text-white mb-1 leading-snug">{project.title}</h3>
+          <h3 className="2xl font-bold text-white mb-1 leading-snug">{project.title}</h3>
           <p className="text-gray-300 text-sm">{project.year}</p>
         </div>
       </div>
