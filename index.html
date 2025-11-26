@@ -279,10 +279,19 @@
         ];
 
         // --- STATE & UTILITIES ---
-        let visibleCount = 4;
-        const INITIAL_LIMIT = 3;
+        let visibleCount = 0;
         let cardToScrollTo = null;
         let isModalAnimating = false;
+
+        function getInitialLimit() {
+            const width = window.innerWidth;
+            // Tablet (md: 768px to 1023px) needs 4 projects (2 rows of 2)
+            if (width >= 768 && width < 1024) {
+                return 4;
+            }
+            // Mobile (< 768px) and Desktop (>= 1024px) use 3 projects
+            return 3; 
+        }
 
         function scrollToSection(id) {
             const element = document.getElementById(id);
@@ -330,6 +339,14 @@
             grid.innerHTML = '';
             actions.innerHTML = '';
 
+            // FIX: If visibleCount is 0 (initial load), set it to the responsive limit.
+            // If it's not fully expanded, maintain the current responsive limit.
+            const currentLimit = getInitialLimit();
+
+            if (visibleCount === 0 || (visibleCount !== ALL_PROJECTS.length && visibleCount !== currentLimit)) {
+                 visibleCount = currentLimit;
+            }
+            
             const projectsToShow = ALL_PROJECTS.slice(0, visibleCount);
 
             projectsToShow.forEach(project => {
@@ -340,19 +357,7 @@
             const isExpanded = visibleCount === ALL_PROJECTS.length;
 
             if (remainingCount > 0 && !isExpanded) {
-                // Render "See More" placeholder card
-                grid.innerHTML += `
-                    <div 
-                        class="flex flex-col items-center justify-center p-8 rounded-xl border-4 border-dashed border-gray-300 text-gray-500 transition-colors duration-300 hover:border-indigo-400 hover:text-indigo-600 cursor-pointer"
-                        onclick="handleShowMore()"
-                    >
-                        <svg class="w-9 h-9 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 5c-1.333 0-2 .67-2 2v10c0 1.33.67 2 2 2h12c1.33 0 2-.67 2-2V7c0-1.33-.67-2-2-2H6zM4 11h16m-4 4h-8"></path></svg>
-                        <p class="text-lg font-semibold text-center">See More Projects</p>
-                        <p class="text-sm text-center">${remainingCount} more pieces of work.</p>
-                    </div>
-                `;
-
-                // Render Show All Button (redundant but kept for completeness)
+                // Render Show All Button 
                 actions.innerHTML += `
                     <button
                         onclick="handleShowMore()"
@@ -361,7 +366,7 @@
                         Show All ${ALL_PROJECTS.length} Projects
                     </button>
                 `;
-            } else if (isExpanded && ALL_PROJECTS.length > INITIAL_LIMIT) {
+            } else if (isExpanded && ALL_PROJECTS.length > currentLimit) {
                  // Render Show Less Button
                 actions.innerHTML += `
                     <button
@@ -380,7 +385,7 @@
         }
 
         function handleCollapse() {
-            visibleCount = INITIAL_LIMIT;
+            visibleCount = getInitialLimit();
             renderWorkSection();
             scrollToSection('work');
         }
@@ -527,7 +532,9 @@
         // --- INITIALIZATION ---
         window.onload = function() {
             document.getElementById('current-year').textContent = new Date().getFullYear();
-            renderWorkSection();
+            
+            // FIX: Ensure the initial project cards are rendered and listeners are attached
+            renderWorkSection(); 
             
             // Apply skill tags formatting using JS since we are in pure HTML/JS
             document.querySelectorAll('.skill-tag').forEach(el => {
@@ -544,6 +551,18 @@
                 if (event.key === 'Escape' && document.getElementById('case-study-modal').style.display !== 'none') {
                     closeCaseStudy();
                 }
+            });
+            
+            // Re-render on resize to adjust the visible card count for responsive change
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    // Only re-render if we are NOT fully expanded, forcing the initial view to adapt
+                    if (visibleCount !== ALL_PROJECTS.length) {
+                         renderWorkSection();
+                    }
+                }, 150);
             });
         };
     </script>
