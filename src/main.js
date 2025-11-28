@@ -1,6 +1,9 @@
 // src/main.js
-
 import App from './App.svelte';
-import './app.css'; // For Tailwind setup, if you configure it
+import './app.css'; // keep this if app.css exists and is correct for Tailwind
 
-App.mount(document.getElementById('app'))
+const app = new App({
+  target: document.getElementById('app')
+});
+
+export default app;

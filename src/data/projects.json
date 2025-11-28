@@ -57,6 +57,12 @@
                             "isVideo": false
                         }
                     ]
+                },
+                {
+                    "id": "asdnew-sectionasd",
+                    "title": "03. asdNEW SECTIONasd",
+                    "content": "Add new content here.asd",
+                    "mediaItems": []
                 }
             ]
         }

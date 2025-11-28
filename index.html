@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>[Designer Name] - Digital Portfolio</title>
     <!-- IMPORTANT FIX: Load data file with 'defer' in the head to ensure it's defined before the main script runs. -->
-    <script src="projects_data.js" defer></script> 
+    <script src="./data/projects.json" defer></script> 
     
     <!-- Tailwind CSS CDN for guaranteed styling -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -213,7 +213,7 @@
         let cardToScrollTo = null;
         let isModalAnimating = false;
         
-        // This array is now assumed to exist globally, loaded from projects_data.js
+        // This array is now assumed to exist globally, loaded from src/data/projects.json
 
         function getInitialLimit() {
             const width = window.innerWidth;
@@ -535,8 +535,8 @@
             // FIX: Ensure ALL_PROJECTS is defined before rendering begins
             // This is now safer due to <script defer> in the head, but we keep the error check.
             if (typeof ALL_PROJECTS === 'undefined') {
-                 console.error("CRITICAL ERROR: projects_data.js not loaded. Check the <script src='projects_data.js'> tag.");
-                 document.getElementById('projects-grid').innerHTML = '<div class="col-span-3 text-center p-8 text-red-600 border border-red-300 rounded-lg">ERROR: Projects failed to load. Please verify projects_data.js file.</div>';
+                 console.error("CRITICAL ERROR: src/data/projects.json not loaded. Check the <script src='src/data/projects.json'> tag.");
+                 document.getElementById('projects-grid').innerHTML = '<div class="col-span-3 text-center p-8 text-red-600 border border-red-300 rounded-lg">ERROR: Projects failed to load. Please verify src/data/projects.json file.</div>';
                  return;
             }
             
