@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>[Designer Name] - Digital Portfolio</title>
-    <!-- IMPORTANT FIX: Load data file with 'defer' in the head to ensure it's defined before the main script runs. -->
-    <script src="./data/projects.json" defer></script> 
+    <!-- NOTE: Loading projects_data.js removed; we'll fetch JSON at runtime instead -->
+    <!-- <script src="projects_data.js" defer></script> -->
     
     <!-- Tailwind CSS CDN for guaranteed styling -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -89,7 +89,7 @@
                     </nav>
                     <!-- Mobile Menu Button - simplified -->
                     <button class="md:hidden p-2 text-gray-700 rounded-lg hover:bg-gray-100 transition" aria-label="Toggle navigation menu">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-wi[...]></svg>
                     </button>
                 </div>
             </div>
@@ -108,10 +108,10 @@
                     </p>
                     <button 
                         onclick="scrollToSection('work')"
-                        class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-xl text-white bg-indigo-600 hover:bg-indigo-700 transition duration-300 transform hover:scale-[1.02]"
+                        class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-xl text-white bg-indigo-600 hover:bg-indigo-70[...]"
                     >
                         View My Work 
-                        <svg class="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        <svg class="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" str[...]></svg>
                     </button>
                 </div>
             </section>
@@ -132,7 +132,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
                     <div class="lg:col-span-2">
                         <h2 class="text-4xl md:text-5xl font-extrabold mb-8">Hello, I'm [Designer Name]</h2>
-                        <p class="text-lg text-gray-700 mb-6 leading-relaxed">I am a multidisciplinary designer with 8+ years of experience crafting digital products from concept to launch. My philosophy centers on **empathy and data-driven design**, ensuring every interface is not just beautiful, but highly functional and accessible.</p>
+                        <p class="text-lg text-gray-700 mb-6 leading-relaxed">I am a multidisciplinary designer with 8+ years of experience crafting digital products from concept to launch. My ph[...]</p>
                         <div class="mt-8">
                             <h3 class="text-2xl font-bold mb-4">Core Skills</h3>
                             <div class="flex flex-wrap gap-3">
@@ -171,15 +171,15 @@
                     
                     <a 
                         href="mailto:hello@designername.com"
-                        class="inline-flex items-center justify-center px-10 py-4 border-2 border-indigo-600 text-lg font-semibold rounded-full text-indigo-600 hover:bg-indigo-50 transition duration-300 transform hover:scale-[1.02]"
+                        class="inline-flex items-center justify-center px-10 py-4 border-2 border-indigo-600 text-lg font-semibold rounded-full text-indigo-600 hover:bg-indigo-50 transition durat[...]"
                     >
-                        <svg class="mr-3 h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-2-3a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2H5z"></path></svg>
+                        <svg class="mr-3 h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" str[...]></svg>
                         hello@designername.com
                     </a>
                     
                     <div class="flex justify-center space-x-6 mt-12">
                         <a href="#" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.344-4 0v5.604h-3v-11h3v1.765c1.397-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762[...]"></path></svg>
                         </a>
                     </div>
                 </div>
@@ -208,12 +208,52 @@
     </div>
     
     <script>
+        // Helper: load JSON from a path and set global ALL_PROJECTS
+        async function ensureAllProjectsLoaded() {
+            if (typeof ALL_PROJECTS !== 'undefined') return true;
+
+            // Try fetching common locations in order:
+            const candidates = [
+                '/projects_data.json',        // root (if you deploy the file to public/)
+                '/src/data/projects.json',    // dev-mode source JSON
+            ];
+
+            for (const c of candidates) {
+                try {
+                    // If it's a JS file, load it via script tag; if JSON, fetch and parse.
+                    if (c.endsWith('.js')) {
+                        await new Promise((resolve, reject) => {
+                            const s = document.createElement('script');
+                            s.src = c;
+                            s.defer = true;
+                            s.onload = () => resolve();
+                            s.onerror = () => reject(new Error('Script load failed'));
+                            document.head.appendChild(s);
+                        });
+                        if (typeof ALL_PROJECTS !== 'undefined') return true;
+                    } else {
+                        const resp = await fetch(c, { cache: 'no-store' });
+                        if (!resp.ok) continue;
+                        const data = await resp.json();
+                        // Assign to global var used elsewhere in the site
+                        window.ALL_PROJECTS = data;
+                        return true;
+                    }
+                } catch (err) {
+                    // continue to next candidate
+                    console.warn('Failed to load', c, err);
+                    continue;
+                }
+            }
+            return false;
+        }
+
         // --- STATE & UTILITIES ---
         let visibleCount = 0;
         let cardToScrollTo = null;
         let isModalAnimating = false;
         
-        // This array is now assumed to exist globally, loaded from src/data/projects.json
+        // This array is now assumed to exist globally, loaded from projects_data.js or projects_data.json
 
         function getInitialLimit() {
             const width = window.innerWidth;
@@ -298,7 +338,7 @@
                 actions.innerHTML += `
                     <button
                         onclick="handleShowMore()"
-                        class="inline-flex items-center justify-center px-6 py-3 border border-indigo-600 text-base font-medium rounded-full text-indigo-600 hover:bg-indigo-50 transition duration-300 shadow-md"
+                        class="inline-flex items-center justify-center px-6 py-3 border border-indigo-600 text-base font-medium rounded-full text-indigo-600 hover:bg-indigo-50 transition duration[...]"
                     >
                         Show All ${totalProjects} Projects
                     </button>
@@ -308,7 +348,7 @@
                 actions.innerHTML += `
                     <button
                         onclick="handleCollapse()"
-                        class="inline-flex items-center justify-center px-6 py-3 bg-indigo-600 border border-indigo-600 text-base font-medium rounded-full text-white hover:bg-indigo-700 transition duration-300 shadow-md"
+                        class="inline-flex items-center justify-center px-6 py-3 bg-indigo-600 border border-indigo-600 text-base font-medium rounded-full text-white hover:bg-indigo-700 transitio[...]"
                     >
                         Show Less
                     </button>
@@ -437,7 +477,7 @@
                             onclick="closeCaseStudy()"
                             class="flex items-center text-indigo-600 hover:text-indigo-800 transition duration-300 font-semibold text-base md:text-lg"
                         >
-                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round"[...]></svg>
                             Back to Work Index
                         </button>
                         <nav class="hidden sm:flex space-x-4 text-sm">
@@ -465,7 +505,7 @@
                             <p class="text-2xl font-bold text-gray-800 mb-6">Ready to discuss your next project?</p>
                             <button 
                                 onclick="closeCaseStudy()"
-                                class="inline-flex items-center justify-center px-8 py-3 bg-indigo-600 border border-indigo-600 text-base font-medium rounded-full text-white hover:bg-indigo-700 transition duration-300 shadow-lg"
+                                class="inline-flex items-center justify-center px-8 py-3 bg-indigo-600 border border-indigo-600 text-base font-medium rounded-full text-white hover:bg-indigo-700 t[...]"
                             >
                                 Back to Index
                             </button>
@@ -531,12 +571,12 @@
 
         // --- INITIALIZATION ---
         
-        window.onload = function() {
-            // FIX: Ensure ALL_PROJECTS is defined before rendering begins
-            // This is now safer due to <script defer> in the head, but we keep the error check.
-            if (typeof ALL_PROJECTS === 'undefined') {
-                 console.error("CRITICAL ERROR: src/data/projects.json not loaded. Check the <script src='src/data/projects.json'> tag.");
-                 document.getElementById('projects-grid').innerHTML = '<div class="col-span-3 text-center p-8 text-red-600 border border-red-300 rounded-lg">ERROR: Projects failed to load. Please verify src/data/projects.json file.</div>';
+        window.onload = async function() {
+            // If ALL_PROJECTS isn't defined yet, try to fetch a JSON data source dynamically
+            const loaded = await ensureAllProjectsLoaded();
+            if (!loaded || typeof ALL_PROJECTS === 'undefined') {
+                 console.error("CRITICAL ERROR: projects data not loaded. Check that projects_data.json exists in one of the expected locations.");
+                 document.getElementById('projects-grid').innerHTML = '<div class="col-span-3 text-center p-8 text-red-600 border border-red-300 rounded-lg">ERROR: Projects failed to load. Please ensure a projects JSON file is present at <code>/projects_data.json</code> or <code>/src/data/projects.json</code>. You can generate this from the admin editor.</div>';
                  return;
             }
             
