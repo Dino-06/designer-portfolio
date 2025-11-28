@@ -59,10 +59,18 @@
                     ]
                 },
                 {
-                    "id": "asdnew-sectionasd",
-                    "title": "03. asdNEW SECTIONasd",
-                    "content": "Add new content here.asd",
+                    "id": "asdnew-sectionasfqw",
+                    "title": "03. asdNEW SECTIONasfqw",
+                    "content": "adooas",
                     "mediaItems": [
+                        {
+                            "url": "asdas",
+                            "isVideo": false
+                        },
+                        {
+                            "url": "adqg",
+                            "isVideo": false
+                        },
                         {
                             "url": "",
                             "isVideo": false

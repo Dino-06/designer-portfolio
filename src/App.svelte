@@ -9,11 +9,12 @@
     // Derived list of unique categories
     $: uniqueCategories = Array.from(new Set($projects.map(p => p.category))).sort();
 
-    // Reactive object for the selected project
-    $: selectedProjectObject = $projects.find(p => p.id === selectedProjectId);
+    // update when user selects from ProjectList (list dispatches 'select' events)
+    function handleSelect(e) {
+        selectedProjectId = e.detail;
+    }
 
-    // --- UTILITY/STATE MANAGEMENT FUNCTIONS ---
-
+    // ... other functions unchanged (reorder, create, delete, duplicate) ...
     function reorderProject(projectId, direction) {
         projects.update(currentProjects => {
             const index = currentProjects.findIndex(p => p.id === projectId);
@@ -98,8 +99,7 @@
         selectedProjectId = newId;
     }
 
-    // --- DATA HANDLING AND OUTPUT (JSON only) ---
-
+    // Save functions unchanged...
     function handleSaveAndCopy() {
         saveProjectsToDisk($projects).then(success => {
             if (success) {
@@ -121,7 +121,6 @@
             await navigator.clipboard.writeText(jsOutput);
             alert('Generated JSON copied to clipboard. Replace the contents of projects.json with it.');
         } catch (err) {
-            // Fallback: select textarea so user can copy manually
             const ta = document.getElementById('js-output');
             if (ta) {
                 ta.select();
@@ -152,19 +151,20 @@
         <h1 class="text-4xl font-black text-indigo-700 mb-2">Portfolio Content Editor</h1>
         <p class="text-gray-600 mb-8">Edit projects and export a JSON file for use on the site. Only JSON output is produced by this editor.</p>
 
+        <!-- Use event listener for selection -->
         <ProjectList 
-            bind:selectedProjectId={selectedProjectId}
+            selectedProjectId={selectedProjectId}
+            on:select={handleSelect}
             {reorderProject}
             {deleteProject}
             {duplicateProject}
             {createNewProject}
-            projects={$projects}
         />
 
         <hr class="my-8" />
 
-        {#if selectedProjectObject}
-            <ProjectEditor bind:project={selectedProjectObject} {uniqueCategories} />
+        {#if selectedProjectId}
+            <ProjectEditor projectId={selectedProjectId} {uniqueCategories} />
         {:else}
             <div class="text-center p-12 text-gray-500">
                 Select a project to begin editing, or click '➕ Add New Project'.

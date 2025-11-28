@@ -1,12 +1,17 @@
 import { writable } from 'svelte/store';
-// CRITICAL FIX: Ensure this is the relative path, not an absolute project alias
-import initialProjects from './data/projects.json'; 
+import initialProjects from './data/projects.json';
 
 // Create a writable store initialized with your data
 export const projects = writable(initialProjects);
 
+// DEBUG: log whenever the projects store updates
+projects.subscribe(value => {
+  // Log small summary to avoid huge dumps
+  console.debug('[store] projects updated — count:', (value && value.length) || 0, 'firstId:', value?.[0]?.id);
+});
+
 // Function to call the local Node.js endpoint
-// FIX: The function must accept the current data to be saved
+// The function must accept the current data to be saved
 export async function saveProjectsToDisk(currentProjectsData) {
     const projectsData = JSON.stringify(currentProjectsData, null, 4);
     
