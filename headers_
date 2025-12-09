@@ -1,0 +1,11 @@
+/admin.html
+  Basic-Auth: Dino:Password123
+  Cache-Control: no-store
+
+/admin.js
+  Basic-Auth: Dino:Password123
+  Cache-Control: no-store
+
+/admin.css
+  Basic-Auth: Dino:Password123
+  Cache-Control: no-store
