@@ -1,0 +1,828 @@
+[
+  {
+    "id": "project-pefmo-corporate-identity-mnfl",
+    "title": "PEFMO: Corporate Identity",
+    "category": "Visual Identity",
+    "year": "2024",
+    "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764614471/PEFMO_Look_and_feel_iisfeq.png",
+    "accentColor": "bg-green-600",
+    "isHidden": false,
+    "caseStudy": {
+      "client": "PEFMO",
+      "role": "Lead Designer & Art Director",
+      "duration": "3 Month",
+      "brief": "Art Directed and led the design to build the full comprehensive Corporate Identity from the ground up, including the entire Visual Identity system for PEFMO.",
+      "sections": [
+        {
+          "id": "section",
+          "title": "Look and Feel",
+          "content": "The creation of branded clothing and design for advertising boards to establish a strong visual presence during games.",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764611610/PEFMO_Look_and_feel-04_cu2j63.png",
+              "isVideo": false
+            }
+          ]
+        },
+        {
+          "id": "section-2",
+          "title": "Full CI",
+          "content": "",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765126032/PEFMO_Comprehensive_CI_qay3pp.png",
+              "isVideo": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "project-premier-league-key-matches-24-25-54xo",
+    "title": "Quick Post Templates: PL Key Matches 24/25",
+    "category": "Content Design System",
+    "year": "2024",
+    "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765126586/DM_PMKT_1200_x_1200_W.png_copy_ehfwmu.png",
+    "accentColor": "bg-pink-600",
+    "isHidden": false,
+    "caseStudy": {
+      "client": "Showmax",
+      "role": "Lead Designer & Art Director",
+      "duration": "2 Month",
+      "brief": "Conceptualised and created a structured Content Design System to quickly generate social media posts for Premier League key matches.",
+      "sections": [
+        {
+          "id": "social-media-channels",
+          "title": "Social Media Channels",
+          "content": "",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765127085/SM_1200_x_1200_W_rroaww.png",
+              "isVideo": false
+            }
+          ]
+        },
+        {
+          "id": "direct-marketing",
+          "title": "Direct Marketing",
+          "content": "Adaptation of Content Design System to be utilised across a number of direct marketing channels",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765127098/PMKT_1080x1920_W_u0mfjg.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765127097/PMKT_1200_x_1200_czkbeg.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765127096/PMKT_1200_x_628_W_dqs0hl.png",
+              "isVideo": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "project-premier-league-key-matches-69s7",
+    "title": "Quick Post Templates: PL Key Matches 23/24",
+    "category": "Content Design System",
+    "year": "2024 - 2025",
+    "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765127171/Display_ycuzsb.png",
+    "accentColor": "bg-pink-600",
+    "isHidden": false,
+    "caseStudy": {
+      "client": "Showmax",
+      "role": "Lead Designer",
+      "duration": "1 Month",
+      "brief": "Conceptualised and created a structured Content Design System to quickly generate social media posts for Premier League key matches.",
+      "sections": [
+        {
+          "id": "section",
+          "title": "Social Media Channels",
+          "content": "",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765127294/SM_1200_x_1200_xscl0i.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765127292/SM_1080x1920.png_nrglqs.png",
+              "isVideo": false
+            }
+          ]
+        },
+        {
+          "id": "direct-marketing",
+          "title": "Direct Marketing",
+          "content": "Adaptation of Content Design System to be utilised across a number of direct marketing channels",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765127326/SM_1080x1920_dupo25.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765127323/PMKT_1200_x_1200_psvc25.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765127322/PMKT_1200_x_628_mdzlab.png",
+              "isVideo": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "project-tactical-social-media-posts-2j82",
+    "title": "Tactical Social Media Posts",
+    "category": "Social Media Design",
+    "year": "2024 - 2025",
+    "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764608693/Liverpool_vs_Chelsea_Display_otew0k.png",
+    "accentColor": "bg-gray-700",
+    "isHidden": false,
+    "caseStudy": {
+      "client": "Showmax",
+      "role": "Lead Designer",
+      "duration": "6 Month",
+      "brief": "Led the Social Media Design to create highly reactive and bespoke posts.",
+      "sections": [
+        {
+          "id": "section",
+          "title": "01. Section",
+          "content": "This content was designed in anticipation of, or in reaction to, key moments and talking points across football and wider culture to maximise engagement.",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764609390/3x4_ck1mcy.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764609349/1080_x_1350_pjzmk9.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764609335/1080_x_1350_kroux1.png",
+              "isVideo": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "project-vision-to-victory-dtdl",
+    "title": "Vision to Victory",
+    "category": "Social Media Design & Photography",
+    "year": "2025",
+    "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764667108/FNB_Savings_Cover_dpuudx.png",
+    "accentColor": "bg-blue-600",
+    "isHidden": false,
+    "caseStudy": {
+      "client": "FNB",
+      "role": "Art Direction",
+      "duration": "3 Months",
+      "brief": "Directed the still photography and subsequent social media post creation for a major FNB film production. The objective was to promote FNB's USP via informal round table discussions filmed at a soccer stadium with South African soccer stars and coaches.",
+      "sections": [
+        {
+          "id": "section",
+          "title": "01. Section",
+          "content": "",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765128292/FNB_Savings_01_VP_OP1_d99jtx.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765128304/FNB_EasyForU_01_VP_OP2_pge1ii.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765128371/FNB_Wills_and_Legacy_01_VP_OP1_foz4rm.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765128359/FNB_Savings_03_VP_OP1_xie7eg.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765128348/FNB_Savings_02_VP_OP1_pvnhiw.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765128341/FNB_Wills_and_Legacy_03_VP_OP1-1_cm6dx5.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765128327/FNB_Funeral_02_VP_OP2_liybwd.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765128312/FNB_Funeral_01_VP_OP1_zaxxb9.png",
+              "isVideo": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "project-pefmo-game-day-templates-ajsx",
+    "title": "Quick Post Templates: PEFMO Game Day",
+    "category": "Content Design System",
+    "year": "2024 - 2025",
+    "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764613755/BANYANA_Game_Day_Cover_u0f6i5.png",
+    "accentColor": "bg-green-600",
+    "isHidden": false,
+    "caseStudy": {
+      "client": "PEFMO",
+      "role": "Lead Designer & Art Director",
+      "duration": "3 Month",
+      "brief": "Conceptualised and created a structured Content Design System of quick-post templates specifically for PEFMO's Game Day social media content.",
+      "sections": [
+        {
+          "id": "section",
+          "title": "Social Templates",
+          "content": "The set of quick-post templates around important match touch points",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764613756/BANYANA_Game_Day_4x5_ngybbn.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764613758/BANYANA_Next_Game_4x5_cnlsms.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765128657/BAFANA_Starting_Lineup_4x5_neg8p2.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765128697/BAFANA_Fulltime_4x5_mzlww5.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765128734/Player_Profiles_4x5_gadsvg.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765128612/Banyana_Calendar_4x5_olqfyi.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765128764/PEFMO_COSAFA_LINE_UP_1_4x5_l6zecn.png",
+              "isVideo": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "project-digital-out-of-home-r080",
+    "title": "Digital Out of Home",
+    "category": "Motion Graphics",
+    "year": "2024 - 2025",
+    "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764609911/Main_nrbxlo.png",
+    "accentColor": "bg-pink-600",
+    "isHidden": false,
+    "caseStudy": {
+      "client": "Showmax",
+      "role": "Lead Designer & Animator",
+      "duration": "6 Months",
+      "brief": "These campaigns were designed to promote upcoming major sporting events and match line-ups for Showmax.",
+      "sections": [
+        {
+          "id": "section",
+          "title": "Motion Graphic Digital Out of Home",
+          "content": "Led the design and animation of high-impact Digital Out of Home (DOOH) advertising content across numerous locations and sizes.",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/video/upload/v1764609765/06_Malandela_Road_Kwa_Mashu_Durban_4m_x_8m_jbvqau.mp4",
+              "isVideo": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "project-the-new-showmax-rollout-8tmq",
+    "title": "The New Showmax Rollout",
+    "category": "Visual Identity Rollout",
+    "year": "2024",
+    "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764602927/DOOH_Holding_Launch_PL_Randburg-Cnr_Oxford_Malibongwe_Drive_Strydom_Park_Randburg-Network_X_wzmwjf.png",
+    "accentColor": "bg-pink-600",
+    "isHidden": false,
+    "caseStudy": {
+      "client": "Showmax",
+      "role": "Digital Designer",
+      "duration": "1 Month",
+      "brief": "Focused on the large-scale implementation of the new Showmax visual identity across various digital and print platforms.",
+      "sections": [
+        {
+          "id": "section",
+          "title": "Assets Roll Out Across GE and PL",
+          "content": "",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764602968/DOOH_Holding_Launch_Youngins_Randburg-Cnr_Oxford_Malibongwe_Drive_Strydom_Park_Randburg-Network_X_zbejxl.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764602927/DOOH_Holding_Launch_PL_Randburg-Cnr_Oxford_Malibongwe_Drive_Strydom_Park_Randburg-Network_X_wzmwjf.png",
+              "isVideo": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "project-w-spot-corporate-identity-jrk8",
+    "title": "W-Spot: Corporate Identity",
+    "category": "Visual Identity & Web Design",
+    "year": "2022",
+    "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765139719/Desk_Drop_s65yiq.png",
+    "accentColor": "bg-pink-600",
+    "isHidden": false,
+    "caseStudy": {
+      "client": "Organon & Co",
+      "role": "Lead UX/UI Designer",
+      "duration": "4 Months",
+      "brief": "Led the creation of a compelling simple visual identity and built a high-performance website to launch their brand with professional distinction and modern appeal.",
+      "sections": [
+        {
+          "id": "corporate-identity",
+          "title": "Corporate Identity",
+          "content": "",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765134337/Logo-03_f8nlv3.png",
+              "isVideo": false
+            }
+          ]
+        },
+        {
+          "id": "desk-drop",
+          "title": "Desk Drop",
+          "content": "",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765139789/Desk_Drop_xlfzgw.png",
+              "isVideo": false
+            }
+          ]
+        },
+        {
+          "id": "website-ux-ui",
+          "title": "Website UX/UI",
+          "content": "",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765141241/mockup_uo6sya.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765198164/Content_ppoyi1.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765198175/Lifestyle_rlgl5s.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765198183/Menopause_w8cjup.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765198173/Perimenopause_nhdava.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765198166/Psychology_q3284a.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765198158/Sexuality_xvrfuo.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765198155/Contact_us_and_legalities_x6gxh5.png",
+              "isVideo": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "project-tracking-thabo-beste-vvdl",
+    "title": "Tracking Thabo Beste",
+    "category": "TV Show Visual Identity",
+    "year": "2024",
+    "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764589598/Thabo_logo-01_k9zrrk.png",
+    "accentColor": "bg-yellow-600",
+    "isHidden": false,
+    "caseStudy": {
+      "client": "Showmax",
+      "role": "Lead Designer",
+      "duration": "1 Month",
+      "brief": "Core part of the creative team tasked with the creation of the core visual identity and branding for the TV show \"Tracking Thabo Beste.\"",
+      "sections": [
+        {
+          "id": "section",
+          "title": "Posters and Core Graphics",
+          "content": "",
+          "mediaItems": []
+        }
+      ]
+    }
+  },
+  {
+    "id": "project-bottega-corporate-identity-rebrand-b03n",
+    "title": "Bottega: Corporate Rebrand",
+    "category": "Visual Identity",
+    "year": "2024",
+    "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764588229/Bottega_bnfx2c.png",
+    "accentColor": "bg-yellow-600",
+    "isHidden": false,
+    "caseStudy": {
+      "client": "Bottega",
+      "role": "Art Direction",
+      "duration": "3 Month",
+      "brief": "Led the design of a comprehensive Corporate Rebrand for Bottega whiskey and wine bar, which included developing the full Visual Identity and a simple, consistent presentation template.",
+      "sections": [
+        {
+          "id": "section",
+          "title": "Full CI",
+          "content": "",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765143533/Bottega_CI_gpg1wl.png",
+              "isVideo": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "project-midas-exide-summer-campaign-rhf3",
+    "title": "Midas Exide Summer Campaign",
+    "category": "UI/UX Mobile App",
+    "year": "2021",
+    "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764180986/17074_Midas_Exide_2021_Summer_Campaign_ykuz24.png",
+    "accentColor": "bg-red-600",
+    "isHidden": false,
+    "caseStudy": {
+      "client": "Midas Exide",
+      "role": "Lead UX/UI Designer",
+      "duration": "2 Month",
+      "brief": "Led the UX/UI design and graphic work for a mobile application developed to support the Midas Exide Summer Campaign, specifically targeting and motivating Midas staff.",
+      "sections": [
+        {
+          "id": "02-visual-design-system",
+          "title": "Visual Design & System",
+          "content": "",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764184594/Home_2_zsbrgh.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765193378/Untitled-1_htxj5d.png",
+              "isVideo": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "project-battery-centre-winter-campaign-ila2",
+    "title": "Battery Centre Winter Campaign",
+    "category": "Marketing Campaign",
+    "year": "2021 - 2022",
+    "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764192087/Artboard_1_copy_2_k7jbxj.png",
+    "accentColor": "bg-yellow-600",
+    "isHidden": false,
+    "caseStudy": {
+      "client": "Battery Centre",
+      "role": "Art Direction",
+      "duration": "1 Month",
+      "brief": "Conceptualised and executed the Battery Centre 2022 Winter Campaign to position the brand as the cold-weather reliability leader, successfully driving Q2 unit sales and increasing market share growth.",
+      "sections": [
+        {
+          "id": "2021-winter-campaign",
+          "title": "2021 Winter Campaign",
+          "content": "",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764192087/Artboard_1_copy_2_k7jbxj.png",
+              "isVideo": false
+            }
+          ]
+        },
+        {
+          "id": "2022-campaign-refresh",
+          "title": "2022 Campaign refresh",
+          "content": "",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764189617/Artboard_1_copy_2_rqkmrv.png",
+              "isVideo": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "project-battery-centre-summer-campaign-590i",
+    "title": "Battery Centre Summer Campaign",
+    "category": "Marketing Campaign",
+    "year": "2022",
+    "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764193560/tent_card_2_qcjfo0.png",
+    "accentColor": "bg-yellow-600",
+    "isHidden": false,
+    "caseStudy": {
+      "client": "Battery Centre",
+      "role": "Art Direction",
+      "duration": "2 Month",
+      "brief": "Led design on a through-the-line summer campaign to capture the essence of the peak summer travel season, successfully driving Q4 unit sales and increasing market share growth.",
+      "sections": [
+        {
+          "id": "section",
+          "title": " ",
+          "content": "",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764193560/tent_card_2_qcjfo0.png",
+              "isVideo": false
+            }
+          ]
+        },
+        {
+          "id": "in-store-activation",
+          "title": "01. In Store Activation",
+          "content": "",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764193564/tent_card_pldhg1.png",
+              "isVideo": false
+            }
+          ]
+        },
+        {
+          "id": "social-media-campaign",
+          "title": "02. Social Media Campaign",
+          "content": "Add new content here.",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764193554/social_mockup_tayvs1.png",
+              "isVideo": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "project-f-bomb-corporate-identity-muha",
+    "title": "F-Bomb: Corporate Identity",
+    "category": "Visual Identity",
+    "year": "2025",
+    "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765184108/FBomb_CI_tfz42i.png",
+    "accentColor": "bg-yellow-600",
+    "isHidden": false,
+    "caseStudy": {
+      "client": "F-Bomb",
+      "role": "Lead Designer & Art Director",
+      "duration": "3 Month",
+      "brief": "Led the design to create the full Corporate Identity and Visual Identity system for the F-Bomb brand, focusing on core foundational branding elements.",
+      "sections": [
+        {
+          "id": "section",
+          "title": "CI and Social Look and Feel",
+          "content": "",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765184096/FBomb_CI2_jkcemd.png",
+              "isVideo": false
+            }
+          ]
+        },
+        {
+          "id": "social-look-and-feel",
+          "title": "Social Look and Feel",
+          "content": "",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765184128/1080x1350_l5ooam.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765184133/1080x1350_c03mhz.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765184139/1080x1350_lsnriu.png",
+              "isVideo": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "project-superpicks-refresh-3ugi",
+    "title": "SuperPicks Refresh",
+    "category": "Visual Identity",
+    "year": "2024",
+    "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764611050/Artboard_1_copy_s3wd5d.png",
+    "accentColor": "bg-blue-600",
+    "isHidden": false,
+    "caseStudy": {
+      "client": "SuperPicks",
+      "role": "Lead Designer",
+      "duration": "1 Month",
+      "brief": "Led the design for the SuperPicks Visual Identity Refresh, updating the brand's look and feel and ensuring consistent application across a variety of digital and marketing touch points.",
+      "sections": [
+        {
+          "id": "section-1",
+          "title": "01. Section",
+          "content": "Describe the challenge here.",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764611052/Artboard_1_cmk60h.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764611050/Artboard_1_copy_s3wd5d.png",
+              "isVideo": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "project-g-g-corporate-website-revamp-1r4h",
+    "title": "G&G Corporate: Website Revamp",
+    "category": "Web UX/UI",
+    "year": "2022",
+    "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764231192/GG_web_dags5s.png",
+    "accentColor": "bg-gray-700",
+    "isHidden": false,
+    "caseStudy": {
+      "client": "G&G Corporate",
+      "role": "Lead UX/UI Designer",
+      "duration": "4 Months",
+      "brief": "Led the UX/UI design on comprehensively redesigning and revamping the entire G&G Corporate website for improved user experience and performance.",
+      "sections": [
+        {
+          "id": "screens",
+          "title": "Screens",
+          "content": "",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765200338/Main_tsblkq.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765200330/Content1_f5lwz6.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765200342/Content2_ueiegh.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765200327/TsCs_g12rb4.png",
+              "isVideo": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "project-bcx-careers-z2o7",
+    "title": "BCX Careers",
+    "category": "Social Media Design",
+    "year": "2018",
+    "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764247019/512021G_BCX_Careers_P1_1200x628_vrc9zi.png",
+    "accentColor": "bg-red-600",
+    "isHidden": false,
+    "caseStudy": {
+      "client": "BCX",
+      "role": "Visual Design Lead",
+      "duration": "1 Month",
+      "brief": "Development of a fresh, dynamic visual language for a 30-day Instagram campaign for BCX Careers.",
+      "sections": [
+        {
+          "id": "section-1",
+          "title": "Social Execution",
+          "content": "",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764246548/512021G_BCX_Careers_P2_1200x628_fv67uw.png",
+              "isVideo": false
+            },
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764247012/512021G_BCX_Careers_P1_1200x628_h3kwce.png",
+              "isVideo": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "project-amd-coffee-table-book-7h7q",
+    "title": "AMD Coffee Table Book",
+    "category": "Editorial Layout Design",
+    "year": "2023",
+    "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764241205/Wrap_Cover_CTB_2023_zzjtrh.png",
+    "accentColor": "bg-gray-700",
+    "isHidden": false,
+    "caseStudy": {
+      "client": "CMS",
+      "role": "Visual Design Lead",
+      "duration": "2 Month",
+      "brief": "Led the Visual Design for the AMD Coffee Table Book, overseeing the comprehensive design and layout to ensure high-quality production and strict adherence to editorial design principles.",
+      "sections": [
+        {
+          "id": "section-1",
+          "title": "",
+          "content": "",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765190390/mockup_svpotg.png",
+              "isVideo": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "project-lighting-the-way-i203",
+    "title": "Lighting The Way",
+    "category": "Visual Identity",
+    "year": "2017",
+    "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764255499/Design_ideas_reaizf.png",
+    "accentColor": "bg-pink-600",
+    "isHidden": false,
+    "caseStudy": {
+      "client": "Spazio",
+      "role": "Visual Design Lead",
+      "duration": "1 Month",
+      "brief": "Led the Visual Design for a one-off logo rebrand for Spazio, specifically supporting a non-profit charity initiative.",
+      "sections": [
+        {
+          "id": "section-1",
+          "title": "",
+          "content": "",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765191152/kids_cf2mh8.png",
+              "isVideo": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "project-servest-kdm-gold-standard-landing-page-80q1",
+    "title": "Servest: KDM Gold Standard Landing Page",
+    "category": "Web UX/UI",
+    "year": "2021",
+    "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764234572/18208_Servest_KDM_Gold_Standard_Landing_Page_j5f64v.png",
+    "accentColor": "bg-blue-600",
+    "isHidden": true,
+    "caseStudy": {
+      "client": "Servest",
+      "role": "UX Designer",
+      "duration": "1 Months",
+      "brief": "Creating a secure, high-end investor portal to manage fund performance, documents, and communication.",
+      "sections": [
+        {
+          "id": "security-trust",
+          "title": "01. Security & Trust",
+          "content": "",
+          "mediaItems": [
+            {
+              "url": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764234572/18208_Servest_KDM_Gold_Standard_Landing_Page_j5f64v.png",
+              "isVideo": false
+            }
+          ]
+        }
+      ]
+    }
+  }
+]
