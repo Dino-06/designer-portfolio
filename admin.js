@@ -1,9 +1,18 @@
 // Admin Panel Logic (accent color preview + custom color picker, sized previews)
 // Netlify AI integration disabled
 const PROJECTS_JSON_PATH = '/projects.json';
-const API_SAVE_ENDPOINT = ''; // Leave empty to disable "Save to Server"
+const API_SAVE_ENDPOINT = '/.netlify/functions/save-projects'; // Leave empty to disable "Save to Server"
 const LOCAL_STORAGE_KEY = 'admin_projects_draft_v2';
 const LOCAL_STORAGE_HISTORY_KEY = 'admin_projects_history_v2';
+// In saveToServer():
+const resp = await fetch(API_SAVE_ENDPOINT, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'x-admin-key': '1234' // matches ADMIN_KEY env var
+  },
+  body: JSON.stringify(projects)
+});
 
 let projects = [];
 let originalProjects = [];
