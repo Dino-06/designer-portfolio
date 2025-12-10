@@ -1,7 +1,7 @@
 // Admin Panel Logic (accent color preview + custom color picker, sized previews)
-// + Netlify AI integration (Generate Brief and Section content via /.netlify/functions/ai-generate)
-const PROJECTS_JSON_PATH = '/projects.json';
-const API_SAVE_ENDPOINT = '';
+// Netlify AI integration disabled
+const PROJECTS_JSON_PATH = '/designer-portfolio/projects.json';
+const API_SAVE_ENDPOINT = ''; // Leave empty to disable "Save to Server"
 const LOCAL_STORAGE_KEY = 'admin_projects_draft_v2';
 const LOCAL_STORAGE_HISTORY_KEY = 'admin_projects_history_v2';
 
@@ -16,10 +16,6 @@ function deepClone(obj) { return JSON.parse(JSON.stringify(obj)); }
 function downloadFile(filename, content) {
   try {
     const blob = new Blob([content], { type: 'application/json;charset=utf-8' });
-    if (window.navigator && typeof window.navigator.msSaveOrOpenBlob === 'function') {
-      window.navigator.msSaveOrOpenBlob(blob, filename);
-      return;
-    }
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.style.display = 'none';
@@ -255,9 +251,6 @@ function selectProject(idx) {
   if (delBtn) delBtn.dataset.deleteProjectId = p.id;
   const dupBtn = $('duplicateProjectBtn');
   if (dupBtn) dupBtn.dataset.projectId = p.id;
-
-  // AI brief button wiring (safe to call multiple times)
-  bindAiBriefButtons();
 }
 
 function clearEditor() {
@@ -330,7 +323,16 @@ function applyChanges() {
   const preset = $('accentPreset').value.trim();
   const customInput = $('proj_accentColor').value.trim();
   const colorPickerVal = $('accentColorPicker').value;
-  p.accentColor = preset || customInput || colorPickerVal || 'bg-indigo-600';
+
+  let accent = preset || customInput || colorPickerVal || 'bg-indigo-600';
+  // Normalize hex to Tailwind arbitrary color class
+  if (isHexColor(accent)) {
+    accent = `bg-[${accent}]`;
+  } else {
+    const extracted = extractHexFromArbitrary(accent);
+    if (extracted) accent = `bg-[${extracted}]`;
+  }
+  p.accentColor = accent;
 
   p.isHidden = $('proj_isHidden').checked;
   p.heroImage = $('proj_heroImage').value.trim();
@@ -426,7 +428,6 @@ function sectionEditor(section, idx) {
         <h4 class="font-semibold">Section</h4>
       </div>
       <div class="flex items-center gap-2">
-        <button type="button" class="px-2 py-1 rounded-full border hover:bg-gray-100" data-action="ai-generate-section">AI Generate</button>
         <button type="button" class="px-2 py-1 rounded-full border hover:bg-gray-100" data-action="gen-id">Generate ID</button>
         <button type="button" class="px-2 py-1 rounded-full border border-red-300 text-red-700 hover:bg-red-50" data-action="delete">Delete</button>
       </div>
@@ -492,9 +493,6 @@ function sectionEditor(section, idx) {
     renderMediaPreview(preview, url, isVideo);
   });
   enableMediaDrag(mediaContainer);
-
-  // Attach AI handler to this section card
-  attachAiToSection(wrapper);
 
   return wrapper;
 }
@@ -672,6 +670,10 @@ function updateProjectHeaderPreview() {
 
 // Accent color preview logic
 function isHexColor(str) { return /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(str.trim()); }
+function extractHexFromArbitrary(str) {
+  const m = (str || '').trim().match(/^bg-\[#([0-9a-f]{3}|[0-9a-f]{6})\]$/i);
+  return m ? `#${m[1]}` : null;
+}
 function updateAccentPreview() {
   const preset = $('accentPreset')?.value?.trim() || '';
   const custom = $('proj_accentColor')?.value?.trim() || '';
@@ -686,13 +688,18 @@ function updateAccentPreview() {
     tailwindClass = preset;
   } else if (isHexColor(custom)) {
     displayHex = custom;
-  } else if (isHexColor(picker)) {
-    displayHex = picker;
-  } else if (custom && !custom.startsWith('#')) {
-    tailwindClass = custom;
   } else {
-    tailwindClass = 'bg-indigo-600';
-    displayHex = '';
+    const extracted = extractHexFromArbitrary(custom);
+    if (extracted) {
+      displayHex = extracted;
+    } else if (isHexColor(picker)) {
+      displayHex = picker;
+    } else if (custom && !custom.startsWith('#')) {
+      tailwindClass = custom;
+    } else {
+      tailwindClass = 'bg-indigo-600';
+      displayHex = '';
+    }
   }
 
   if (badge) {
@@ -707,87 +714,8 @@ function updateAccentPreview() {
   }
   if (swatch) {
     swatch.style.backgroundColor = displayHex || '';
-    swatch.className = `accent-swatch ${displayHex ? '' : ''}`.trim();
+    swatch.className = `accent-swatch`.trim();
   }
-}
-
-// Netlify AI: call /.netlify/functions/ai-generate
-async function generateCopy({ target, tone, length, project, section }) {
-  const resp = await fetch('/.netlify/functions/ai-generate', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ target, tone, length, project, section })
-  });
-  const data = await resp.json();
-  if (!resp.ok) throw new Error(data.error || 'AI generation failed');
-  return data.text || '';
-}
-
-// Build project context from current form values (latest edits)
-function getCurrentProjectContext() {
-  const p = projects[selectedIndex] || {};
-  const cs = p.caseStudy || {};
-  return {
-    title: $('proj_title')?.value?.trim() || p.title || '',
-    category: $('proj_category')?.value?.trim() || p.category || '',
-    year: $('proj_year')?.value?.trim() || p.year || '',
-    client: $('case_client')?.value?.trim() || cs.client || '',
-    role: $('case_role')?.value?.trim() || cs.role || '',
-    duration: $('case_duration')?.value?.trim() || cs.duration || '',
-    brief: $('case_brief')?.value?.trim() || cs.brief || ''
-  };
-}
-
-// Wire the Brief Generate button
-function bindAiBriefButtons() {
-  const btn = $('aiGenerateBriefBtn');
-  if (!btn) return;
-  btn.addEventListener('click', async () => {
-    const tone = $('aiToneSelect')?.value || 'professional';
-    const length = $('aiLengthSelect')?.value || 'short';
-    const project = getCurrentProjectContext();
-    btn.disabled = true; btn.textContent = 'Generating…';
-    try {
-      const text = await generateCopy({ target: 'brief', tone, length, project });
-      $('case_brief').value = text;
-    } catch (e) {
-      toast(e.message);
-    } finally {
-      btn.disabled = false; btn.textContent = 'Generate brief';
-    }
-  });
-}
-
-// Attach AI button handler to a section card
-function attachAiToSection(wrapper) {
-  const genBtn = wrapper.querySelector('[data-action="ai-generate-section"]');
-  if (!genBtn) return;
-  genBtn.addEventListener('click', async () => {
-    const tone = $('aiToneSelect')?.value || 'professional';
-    const length = $('aiLengthSelect')?.value || 'short';
-    const project = getCurrentProjectContext();
-    const contentEl = wrapper.querySelector('[data-field="content"]');
-    const section = {
-      title: wrapper.querySelector('[data-field="title"]').value.trim(),
-      content: contentEl.value.trim(),
-      mediaItems: Array.from(wrapper.querySelectorAll('.media-item-card')).map(card => ({
-        isVideo: card.querySelector('[data-field="isVideo"]')?.checked || false
-      }))
-    };
-    genBtn.disabled = true; genBtn.textContent = 'Generating…';
-    try {
-      const text = await generateCopy({ target: 'section', tone, length, project, section });
-      contentEl.value = text;
-      const previewEl = wrapper.querySelector('div[id*="sec-md-preview"]');
-      if (previewEl && typeof renderMarkdown === 'function') {
-        previewEl.innerHTML = renderMarkdown(text);
-      }
-    } catch (e) {
-      toast(e.message);
-    } finally {
-      genBtn.disabled = false; genBtn.textContent = 'AI Generate';
-    }
-  });
 }
 
 // Bind events
@@ -899,9 +827,6 @@ function bindEvents() {
       console.warn('Failed to parse draft', err);
     }
   }
-
-  // Wire AI brief generate on initial load too
-  bindAiBriefButtons();
 }
 
 document.addEventListener('DOMContentLoaded', bindEvents);
@@ -933,7 +858,7 @@ function initializeAllMediaPreviews() {
   });
 }
 
-// Minimal Markdown renderer (if you already have one, keep that; else this helps section preview)
+// Minimal Markdown renderer
 function escapeHtml(str) {
   return str.replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
 }

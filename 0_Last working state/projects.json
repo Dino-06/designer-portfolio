@@ -5,7 +5,7 @@
     "category": "Visual Identity",
     "year": "2024",
     "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764614471/PEFMO_Look_and_feel_iisfeq.png",
-    "accentColor": "bg-green-600",
+    "accentColor": "#596861",
     "isHidden": false,
     "caseStudy": {
       "client": "PEFMO",
@@ -40,11 +40,11 @@
   },
   {
     "id": "project-premier-league-key-matches-24-25-54xo",
-    "title": "Quick Post Templates: PL Key Matches 24/25",
+    "title": "PL Key Matches 2024-2025",
     "category": "Content Design System",
     "year": "2024",
     "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765126586/DM_PMKT_1200_x_1200_W.png_copy_ehfwmu.png",
-    "accentColor": "bg-pink-600",
+    "accentColor": "bg-[#4f5382]",
     "isHidden": false,
     "caseStudy": {
       "client": "Showmax",
@@ -87,11 +87,11 @@
   },
   {
     "id": "project-premier-league-key-matches-69s7",
-    "title": "Quick Post Templates: PL Key Matches 23/24",
+    "title": "PL Key Matches 2023-2024",
     "category": "Content Design System",
     "year": "2024 - 2025",
     "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765127171/Display_ycuzsb.png",
-    "accentColor": "bg-pink-600",
+    "accentColor": "bg-[#4f5382]",
     "isHidden": false,
     "caseStudy": {
       "client": "Showmax",
@@ -142,7 +142,7 @@
     "category": "Social Media Design",
     "year": "2024 - 2025",
     "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764608693/Liverpool_vs_Chelsea_Display_otew0k.png",
-    "accentColor": "bg-gray-700",
+    "accentColor": "#9598b4",
     "isHidden": false,
     "caseStudy": {
       "client": "Showmax",
@@ -151,8 +151,8 @@
       "brief": "Led the Social Media Design to create highly reactive and bespoke posts.",
       "sections": [
         {
-          "id": "section",
-          "title": "01. Section",
+          "id": "tactical-executions",
+          "title": "Tactical Executions",
           "content": "This content was designed in anticipation of, or in reaction to, key moments and talking points across football and wider culture to maximise engagement.",
           "mediaItems": [
             {
@@ -178,7 +178,7 @@
     "category": "Social Media Design & Photography",
     "year": "2025",
     "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764667108/FNB_Savings_Cover_dpuudx.png",
-    "accentColor": "bg-blue-600",
+    "accentColor": "bg-gray-700",
     "isHidden": false,
     "caseStudy": {
       "client": "FNB",
@@ -187,8 +187,8 @@
       "brief": "Directed the still photography and subsequent social media post creation for a major FNB film production. The objective was to promote FNB's USP via informal round table discussions filmed at a soccer stadium with South African soccer stars and coaches.",
       "sections": [
         {
-          "id": "section",
-          "title": "01. Section",
+          "id": "social-media-executions",
+          "title": "Social Media Executions",
           "content": "",
           "mediaItems": [
             {
@@ -230,11 +230,11 @@
   },
   {
     "id": "project-pefmo-game-day-templates-ajsx",
-    "title": "Quick Post Templates: PEFMO Game Day",
+    "title": "PEFMO Game Day",
     "category": "Content Design System",
     "year": "2024 - 2025",
     "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764613755/BANYANA_Game_Day_Cover_u0f6i5.png",
-    "accentColor": "bg-green-600",
+    "accentColor": "bg-[#4f5382]",
     "isHidden": false,
     "caseStudy": {
       "client": "PEFMO",
@@ -286,7 +286,7 @@
     "category": "Motion Graphics",
     "year": "2024 - 2025",
     "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764609911/Main_nrbxlo.png",
-    "accentColor": "bg-pink-600",
+    "accentColor": "bg-[#b48689]",
     "isHidden": false,
     "caseStudy": {
       "client": "Showmax",
@@ -314,7 +314,7 @@
     "category": "Visual Identity Rollout",
     "year": "2024",
     "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764602927/DOOH_Holding_Launch_PL_Randburg-Cnr_Oxford_Malibongwe_Drive_Strydom_Park_Randburg-Network_X_wzmwjf.png",
-    "accentColor": "bg-pink-600",
+    "accentColor": "bg-[#88b0b5]",
     "isHidden": false,
     "caseStudy": {
       "client": "Showmax",
@@ -346,7 +346,7 @@
     "category": "Visual Identity & Web Design",
     "year": "2022",
     "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765139719/Desk_Drop_s65yiq.png",
-    "accentColor": "bg-pink-600",
+    "accentColor": "bg-[#82353a]",
     "isHidden": false,
     "caseStudy": {
       "client": "Organon & Co",
@@ -425,7 +425,7 @@
     "year": "2024",
     "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764589598/Thabo_logo-01_k9zrrk.png",
     "accentColor": "bg-yellow-600",
-    "isHidden": false,
+    "isHidden": true,
     "caseStudy": {
       "client": "Showmax",
       "role": "Lead Designer",
@@ -447,7 +447,7 @@
     "category": "Visual Identity",
     "year": "2024",
     "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764588229/Bottega_bnfx2c.png",
-    "accentColor": "bg-yellow-600",
+    "accentColor": "#596861",
     "isHidden": false,
     "caseStudy": {
       "client": "Bottega",
@@ -471,11 +471,11 @@
   },
   {
     "id": "project-midas-exide-summer-campaign-rhf3",
-    "title": "Midas Exide Summer Campaign",
+    "title": "Exide Summer Campaign",
     "category": "UI/UX Mobile App",
     "year": "2021",
     "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764180986/17074_Midas_Exide_2021_Summer_Campaign_ykuz24.png",
-    "accentColor": "bg-red-600",
+    "accentColor": "bg-[#82353a]",
     "isHidden": false,
     "caseStudy": {
       "client": "Midas Exide",
@@ -507,7 +507,7 @@
     "category": "Marketing Campaign",
     "year": "2021 - 2022",
     "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764192087/Artboard_1_copy_2_k7jbxj.png",
-    "accentColor": "bg-yellow-600",
+    "accentColor": "bg-[#52754d]",
     "isHidden": false,
     "caseStudy": {
       "client": "Battery Centre",
@@ -546,7 +546,7 @@
     "category": "Marketing Campaign",
     "year": "2022",
     "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764193560/tent_card_2_qcjfo0.png",
-    "accentColor": "bg-yellow-600",
+    "accentColor": "bg-[#52754d]",
     "isHidden": false,
     "caseStudy": {
       "client": "Battery Centre",
@@ -555,8 +555,8 @@
       "brief": "Led design on a through-the-line summer campaign to capture the essence of the peak summer travel season, successfully driving Q4 unit sales and increasing market share growth.",
       "sections": [
         {
-          "id": "section",
-          "title": " ",
+          "id": "key-visual",
+          "title": "Key Visual",
           "content": "",
           "mediaItems": [
             {
@@ -596,7 +596,7 @@
     "category": "Visual Identity",
     "year": "2025",
     "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1765184108/FBomb_CI_tfz42i.png",
-    "accentColor": "bg-yellow-600",
+    "accentColor": "#596861",
     "isHidden": false,
     "caseStudy": {
       "client": "F-Bomb",
@@ -643,7 +643,7 @@
     "category": "Visual Identity",
     "year": "2024",
     "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764611050/Artboard_1_copy_s3wd5d.png",
-    "accentColor": "bg-blue-600",
+    "accentColor": "bg-[#88b589]",
     "isHidden": false,
     "caseStudy": {
       "client": "SuperPicks",
@@ -652,8 +652,8 @@
       "brief": "Led the design for the SuperPicks Visual Identity Refresh, updating the brand's look and feel and ensuring consistent application across a variety of digital and marketing touch points.",
       "sections": [
         {
-          "id": "section-1",
-          "title": "01. Section",
+          "id": "look-and-feel",
+          "title": "Look and Feel",
           "content": "Describe the challenge here.",
           "mediaItems": [
             {
@@ -675,7 +675,7 @@
     "category": "Web UX/UI",
     "year": "2022",
     "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764231192/GG_web_dags5s.png",
-    "accentColor": "bg-gray-700",
+    "accentColor": "#82353a",
     "isHidden": false,
     "caseStudy": {
       "client": "G&G Corporate",
@@ -715,7 +715,7 @@
     "category": "Social Media Design",
     "year": "2018",
     "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764247019/512021G_BCX_Careers_P1_1200x628_vrc9zi.png",
-    "accentColor": "bg-red-600",
+    "accentColor": "#9598b4",
     "isHidden": false,
     "caseStudy": {
       "client": "BCX",
@@ -756,8 +756,8 @@
       "brief": "Led the Visual Design for the AMD Coffee Table Book, overseeing the comprehensive design and layout to ensure high-quality production and strict adherence to editorial design principles.",
       "sections": [
         {
-          "id": "section-1",
-          "title": "",
+          "id": "amd-coffee-table-book",
+          "title": "AMD Coffee Table Book",
           "content": "",
           "mediaItems": [
             {
@@ -775,7 +775,7 @@
     "category": "Visual Identity",
     "year": "2017",
     "heroImage": "https://res.cloudinary.com/dzutg4biv/image/upload/v1764255499/Design_ideas_reaizf.png",
-    "accentColor": "bg-pink-600",
+    "accentColor": "#596861",
     "isHidden": false,
     "caseStudy": {
       "client": "Spazio",
@@ -784,8 +784,8 @@
       "brief": "Led the Visual Design for a one-off logo rebrand for Spazio, specifically supporting a non-profit charity initiative.",
       "sections": [
         {
-          "id": "section-1",
-          "title": "",
+          "id": "lighting-the-way",
+          "title": "Lighting The Way",
           "content": "",
           "mediaItems": [
             {

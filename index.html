@@ -57,8 +57,11 @@
           background: #000; /* avoids white bars around videos */
         }
 
-        /* Brands scroller gap via CSS var */
+        /* Brands scroller styles */
         #brand-track { gap: var(--brand-gap, 4rem); }
+        .brand-dragging { cursor: grabbing !important; }
+        .brand-draggable { cursor: grab; }
+
     </style>
 </head>
 <body class="antialiased">
@@ -122,7 +125,7 @@
       <div class="pointer-events-none absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-white to-transparent"></div>
 
       <!-- Track that scrolls (we’ll clone children to create an infinite loop) -->
-      <div id="brand-track" class="flex items-center will-change-transform">
+      <div id="brand-track" class="flex items-center will-change-transform brand-draggable">
         <!-- One pass of logos -->
         <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270649/Showmax_ew8gkk.png" alt="Showmax" class="h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
         <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270451/FNB_s07t8e.png" alt="FNB" class="h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition"style="max-width: 160px; max-height: 80px; "/>
@@ -242,7 +245,7 @@
     </div>
     
 <script>
-  // Perpetual horizontal scroll for brand logos (time-based + hover pause)
+  // Perpetual horizontal scroll for brand logos (time-based + hover pause + drag)
   (function initBrandScroller() {
     const track = document.getElementById('brand-track');
     if (!track) return;
@@ -258,12 +261,12 @@
       return widths.reduce((a, b) => a + b, 0) + (originals.length - 1) * gapPx;
     }
 
-    let offset = 0;
-    let isPaused = false;
+    let offset = 0;              // current translateX
+    let isPaused = false;        // hover pause
     let firstPassWidth = measureFirstPassWidth();
 
-    // Speed in px/sec
-    let speed = 12; // slower default
+    // Speed in px/sec (auto scroll)
+    let speed = 12;
     window.setBrandScrollSpeed = function(newSpeedPps) {
       const ns = Number(newSpeedPps);
       if (!Number.isFinite(ns) || ns <= 0) return;
@@ -274,13 +277,98 @@
     track.addEventListener('mouseenter', () => { isPaused = true; });
     track.addEventListener('mouseleave', () => { isPaused = false; });
 
-    // Time-based loop
+    // Drag-to-scroll state
+    let dragging = false;
+    let lastClientX = 0;
+    let velocity = 0;            // for a subtle fling
+    let lastTsForVelocity = performance.now();
+
+    // Helpers to clamp/loop offset
+    function normalizeOffset(x) {
+      // Loop when exceeding first pass to keep it seamless
+      if (Math.abs(x) >= firstPassWidth) {
+        const sign = x < 0 ? -1 : 1;
+        x = sign * (Math.abs(x) % firstPassWidth);
+      }
+      return x;
+    }
+
+    // Pointer events (mouse + touch unified)
+    function onDragStart(clientX) {
+      dragging = true;
+      isPaused = true; // pause auto scroll while dragging
+      lastClientX = clientX;
+      track.classList.add('brand-dragging');
+      track.style.transition = 'none'; // remove any transition while dragging
+      velocity = 0;
+      lastTsForVelocity = performance.now();
+    }
+    function onDragMove(clientX) {
+      if (!dragging) return;
+      const dx = clientX - lastClientX;
+      lastClientX = clientX;
+
+      // Move opposite to pointer for natural feel (drag left => scroll left)
+      offset += dx;
+      offset = normalizeOffset(offset);
+      track.style.transform = `translateX(${offset}px)`;
+
+      // Track velocity
+      const now = performance.now();
+      const dt = (now - lastTsForVelocity) / 1000;
+      lastTsForVelocity = now;
+      if (dt > 0) velocity = dx / dt; // px/sec
+    }
+    function onDragEnd() {
+      if (!dragging) return;
+      dragging = false;
+      track.classList.remove('brand-dragging');
+      // Apply a small fling and then resume auto-scroll
+      const flingDuration = 300; // ms
+      const start = performance.now();
+      const initialVelocity = Math.max(Math.min(velocity, 500), -2500); // clamp
+      function fling(ts) {
+        const t = ts - start;
+        const progress = Math.min(t / flingDuration, 1);
+        const ease = 1 - Math.pow(1 - progress, 2); // ease-out
+        const delta = initialVelocity * (1 - ease) * (flingDuration / 820) * 0.06; // damped
+        offset += delta;
+        offset = normalizeOffset(offset);
+        track.style.transform = `translateX(${offset}px)`;
+        if (progress < 1) requestAnimationFrame(fling);
+        else isPaused = false; // resume auto scroll
+      }
+      requestAnimationFrame(fling);
+    }
+
+    // Mouse events
+    track.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      onDragStart(e.clientX);
+    });
+    window.addEventListener('mousemove', (e) => onDragMove(e.clientX));
+    window.addEventListener('mouseup', () => onDragEnd());
+
+    // Touch events
+    track.addEventListener('touchstart', (e) => {
+      if (e.touches && e.touches.length) {
+        onDragStart(e.touches[0].clientX);
+      }
+    }, { passive: true });
+    window.addEventListener('touchmove', (e) => {
+      if (e.touches && e.touches.length) {
+        onDragMove(e.touches[0].clientX);
+      }
+    }, { passive: true });
+    window.addEventListener('touchend', () => onDragEnd());
+
+    // Time-based auto loop (disabled while dragging or paused)
     let lastTs = performance.now();
     function loop(ts) {
       const dt = (ts - lastTs) / 1000;
       lastTs = ts;
 
-      if (!isPaused) {
+      if (!isPaused && !dragging) {
         offset -= speed * dt;
         if (Math.abs(offset) >= firstPassWidth) offset = 0;
         track.style.transform = `translateX(${offset}px)`;
@@ -304,7 +392,7 @@
 <script>
         async function ensureAllProjectsLoaded() {
             if (typeof ALL_PROJECTS !== 'undefined') return true;
-            const candidates = ['/projects.json', '/src/data/projects.json'];
+            const candidates = ['/projects.json', '/designer-portfolio/projects.json', '/src/data/projects.json'];
             for (const c of candidates) {
                 try {
                     const resp = await fetch(c, { cache: 'no-store' });
@@ -330,11 +418,18 @@
             card.id = `project-card-${project.id}`;
             card.className = "relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out cursor-pointer group";
             card.onclick = () => openCaseStudy(project.id);
+
+        // NEW: robust accent handling (supports hex or Tailwind class)
+            const accent = project.accentColor || 'bg-[#47b1e0]';
+            const isHexOnly = typeof accent === 'string' && accent.trim().startsWith('#');
+            const badgeClass = isHexOnly ? '' : accent;
+            const badgeStyleAttr = isHexOnly ? `style="background-color: ${accent};"` : '';
+            
             card.innerHTML = `
                 <img src="${project.heroImage}" alt="${project.title} hero" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-hover:opacity-80" onerror="this.onerror=null; this.src='https://placehold.co/800x600/6366f1/ffffff?text=Project+Mockup';" />
                 <div class="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black/80 to-transparent transition-opacity duration-300">
                     <div class="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                        <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full text-white mb-2 ${project.accentColor || 'bg-[#47b1e0]'}">${project.category}</span>
+                        <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full text-white mb-2 ${badgeClass}" ${badgeStyleAttr}>${project.category}</span>
                         <h3 class="text-2xl font-bold text-white mb-1 leading-snug">${project.title}</h3>
                         <p class="text-gray-300 text-sm">${project.year}</p>
                     </div>
