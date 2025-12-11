@@ -74,75 +74,93 @@
         <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
             <div class="container mx-auto px-6 max-w-7xl">
                 <div class="flex justify-between items-center py-4">
-                    <div id="logo-link" class="text-2xl font-extrabold tracking-tight cursor-pointer" onclick="scrollToSection('contact')">Dino Agrela</div>
+                    <div id="logo-link" class="text-xl sm:text-2xl font-extrabold tracking-tight cursor-pointer" onclick="scrollToSection('contact')">Dino Agrela</div>
+                    <!-- Desktop nav -->
                     <nav class="hidden md:flex space-x-8 font-medium">
-                        <a href="#work" onclick="handleNavClick(event, 'work')" class="nav-item">Work</a>
-                        <a href="#brands" onclick="handleNavClick(event, 'brands')" class="nav-item">Brands</a>
-                        <a href="#about" onclick="handleNavClick(event, 'about')" class="nav-item">About</a>
-                        <a href="#contact" onclick="handleNavClick(event, 'contact')" class="nav-item">Contact</a>
+                        <a href="#work" onclick="handleNavClick(event, 'work')" class="nav-item text-sm sm:text-base">Work</a>
+                        <a href="#brands" onclick="handleNavClick(event, 'brands')" class="nav-item text-sm sm:text-base">Brands</a>
+                        <a href="#about" onclick="handleNavClick(event, 'about')" class="nav-item text-sm sm:text-base">About</a>
+                        <a href="#contact" onclick="handleNavClick(event, 'contact')" class="nav-item text-sm sm:text-base">Contact</a>
                     </nav>
-                    <button class="md:hidden p-2 text-gray-700 rounded-lg hover:bg-gray-100 transition" aria-label="Toggle navigation menu">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/></svg>
+                    <!-- Mobile toggle -->
+                    <button id="mobile-nav-toggle" class="md:hidden p-2 text-gray-700 rounded-lg hover:bg-gray-100 transition" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+                        <!-- hamburger -->
+                        <svg id="icon-menu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/>
+                        </svg>
+                        <!-- close (hidden by default) -->
+                        <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
                     </button>
                 </div>
+            </div>
+            <!-- Mobile menu panel -->
+            <div id="mobile-menu" class="md:hidden hidden border-t border-gray-200 bg-white">
+              <div class="container mx-auto px-6 max-w-7xl py-3 flex flex-col">
+                <a href="#work" class="py-2 text-gray-800 hover:text-[#00779e]" data-mobile-link="work">Work</a>
+                <a href="#brands" class="py-2 text-gray-800 hover:text-[#00779e]" data-mobile-link="brands">Brands</a>
+                <a href="#about" class="py-2 text-gray-800 hover:text-[#00779e]" data-mobile-link="about">About</a>
+                <a href="#contact" class="py-2 text-gray-800 hover:text-[#00779e]" data-mobile-link="contact">Contact</a>
+              </div>
             </div>
         </header>
 
         <!-- Main Content -->
         <main>
             <!-- Hero Section -->
-            <section id="hero" class="py-16 md:py-24 bg-gray-50 container mx-auto px-6 max-w-7xl min-h-[calc(100vh-6rem)] flex items-center justify-center text-center">
+            <section id="hero" class="py-14 sm:py-16 md:py-24 bg-gray-50 container mx-auto px-6 max-w-7xl min-h-[calc(100vh-6rem)] flex items-center justify-center text-center">
                 <div class="max-w-4xl">
-                    <h1 class="text-6xl md:text-8xl font-black mb-6 leading-tight">
+                    <h1 class="text-4xl sm:text-6xl md:text-8xl font-black mb-5 sm:mb-6 leading-tight">
                         Designing <span class="text-[#47b1e0]">Intuitive</span> Digital Experiences.
                     </h1>
-                    <p class="text-xl md:text-2xl text-gray-600 mb-10 font-light">
+                    <p class="text-base sm:text-lg md:text-2xl text-gray-600 mb-8 sm:mb-10 font-light">
                         I've honed my skills through independent learning. I have a keen eye for detail and strive for excellence in everything I do.
                     </p>
-                    <button onclick="scrollToSection('work')" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-xl text-white bg-[#47b1e0] hover:bg-[#00779e] transition">
+                    <button onclick="scrollToSection('work')" class="inline-flex items-center justify-center px-6 sm:px-8 py-3 border border-transparent text-sm sm:text-base font-medium rounded-full shadow-xl text-white bg-[#47b1e0] hover:bg-[#00779e] transition">
                         View My Work
                     </button>
                 </div>
             </section>
 
             <!-- Work Section -->
-            <section id="work" class="py-16 md:py-24 container mx-auto px-6 max-w-7xl">
-                <h2 class="text-4xl md:text-5xl font-extrabold mb-12 text-center">Selected Work</h2>
-                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+            <section id="work" class="py-12 sm:py-16 md:py-24 container mx-auto px-6 max-w-7xl">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-8 sm:mb-12 text-center">Selected Work</h2>
+                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"></div>
                 <div id="work-actions" class="text-center mt-8"></div>
 
 <!-- Brands section -->
-<section id="brands" class="py-10 bg-white">
+<section id="brands" class="py-8 sm:py-10 bg-white">
   <div class="container mx-auto px-6 max-w-7xl">
-    <div class="flex items-center justify-between gap-4 mb-6">
-      <h3 class="text-2xl font-bold mb-4">Brands I’ve Worked With</h3>
+    <div class="flex items-center justify-between gap-4 mb-4 sm:mb-6">
+      <h3 class="text-xl sm:text-2xl font-bold">Brands I’ve Worked With</h3>
     </div>
 
     <!-- Scroller viewport -->
     <div class="relative overflow-hidden">
       <!-- Fading edges for polish -->
-      <div class="pointer-events-none absolute left-0 top-0 h-full w-12 bg-gradient-to-r from-white to-transparent"></div>
-      <div class="pointer-events-none absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-white to-transparent"></div>
+      <div class="pointer-events-none absolute left-0 top-0 h-full w-10 sm:w-12 bg-gradient-to-r from-white to-transparent"></div>
+      <div class="pointer-events-none absolute right-0 top-0 h-full w-10 sm:w-12 bg-gradient-to-l from-white to-transparent"></div>
 
       <!-- Track that scrolls (we’ll clone children to create an infinite loop) -->
       <div id="brand-track" class="flex items-center will-change-transform brand-draggable">
         <!-- One pass of logos -->
-        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270649/Showmax_ew8gkk.png" alt="Showmax" class="h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
-        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270451/FNB_s07t8e.png" alt="FNB" class="h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition"style="max-width: 160px; max-height: 80px; "/>
-        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270643/PEFMO_mtoucn.png" alt="PEFMO" class="h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
-        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270950/Srvest_ufpgal.png" alt="Servest" class="h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
-        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270996/Telkom_sqsfxb.png" alt="Telkom" class="h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 140px; max-height: 80px;"/>
-        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270445/First_Battery_pvldw5.png" alt="Battery Centre" class="h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
-        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270973/SuperSport_sjvb8j.png" alt="SuperSport" class="h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
-        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270429/Bottega_temywt.png" alt="Bottega" class="h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
-        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270560/GG_vzjqti.png" alt="G&G Digital" class="h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
-        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765271002/WSpot_fd1qaa.png" alt="W-Spot" class="h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
-        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270654/Spazio_gvjkyy.png" alt="Spazio" class="h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
-        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270636/Janssen_wbvgsx.png" alt="Janssen" class="h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
-        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270566/Hollard_sdifxr.png" alt="Hollard" class="h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 140px; max-height: 80px;"/>
-        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270440/FBomb_trggpp.png" alt="F-Bomb" class="h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
-        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270435/Exide_pllehb.png" alt="Exide" class="h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
-        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270425/AMD_mjc06h.png" alt="AMD" class="h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
+        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270649/Showmax_ew8gkk.png" alt="Showmax" class="h-8 sm:h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
+        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270451/FNB_s07t8e.png" alt="FNB" class="h-8 sm:h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition"style="max-width: 160px; max-height: 80px; "/>
+        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270643/PEFMO_mtoucn.png" alt="PEFMO" class="h-8 sm:h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
+        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270950/Srvest_ufpgal.png" alt="Servest" class="h-8 sm:h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
+        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270996/Telkom_sqsfxb.png" alt="Telkom" class="h-8 sm:h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 140px; max-height: 80px;"/>
+        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270445/First_Battery_pvldw5.png" alt="Battery Centre" class="h-8 sm:h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
+        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270973/SuperSport_sjvb8j.png" alt="SuperSport" class="h-8 sm:h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
+        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270429/Bottega_temywt.png" alt="Bottega" class="h-8 sm:h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
+        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270560/GG_vzjqti.png" alt="G&G Digital" class="h-8 sm:h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
+        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765271002/WSpot_fd1qaa.png" alt="W-Spot" class="h-8 sm:h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
+        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270654/Spazio_gvjkyy.png" alt="Spazio" class="h-8 sm:h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
+        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270636/Janssen_wbvgsx.png" alt="Janssen" class="h-8 sm:h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
+        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270566/Hollard_sdifxr.png" alt="Hollard" class="h-8 sm:h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 140px; max-height: 80px;"/>
+        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270440/FBomb_trggpp.png" alt="F-Bomb" class="h-8 sm:h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
+        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270435/Exide_pllehb.png" alt="Exide" class="h-8 sm:h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
+        <img src="https://res.cloudinary.com/dzutg4biv/image/upload/v1765270425/AMD_mjc06h.png" alt="AMD" class="h-8 sm:h-9 md:h-11 object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition" style="max-width: 160px; max-height: 80px;"/>
 
       </div>
     </div>
@@ -152,25 +170,25 @@
             </section>
 
             <!-- About Section -->
-            <section id="about" class="py-16 md:py-24 container mx-auto px-6 max-w-7xl bg-gray-50 -mx-6 px-6">
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+            <section id="about" class="py-12 sm:py-16 md:py-24 container mx-auto px-6 max-w-7xl bg-gray-50 -mx-6 px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 sm:gap-12 items-start">
                     <div class="lg:col-span-2">
-                        <h2 class="text-4xl md:text-5xl font-extrabold mb-8">Hello, I'm Dino Agrela</h2>
-                        <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 sm:mb-8">Hello, I'm Dino Agrela</h2>
+                        <p class="text-base sm:text-lg text-gray-700 mb-5 sm:mb-6 leading-relaxed">
                             I am a multidisciplinary designer with 10+ years of experience.<br>
                             I'm a technically and creatively minded designer dedicated to delivering high-quality work, thriving on the challenge of finding the perfect solution whether working independently or as part of a team. My calm and focused demeanor ensures I adapt quickly to new briefs, efficiently meeting tight deadlines without compromising quality. I am a perfectionist at heart and an adaptable, collaborative problem-solver.
                         </p>
-                        <div class="mt-8">
-                            <h3 class="text-2xl font-bold mb-4">Core Skills</h3>
-                            <div class="flex flex-wrap gap-3">
-                                <span class="skill-tag">Full Adobe Suite</span>
-                                <span class="skill-tag">Figma</span>
-                                <span class="skill-tag">Wireframing</span>
-                                <span class="skill-tag">Prototyping (Figma/XD)</span>
-                                <span class="skill-tag">Design Systems</span>
-                                <span class="skill-tag">Mobile & Web UI</span>
-                                <span class="skill-tag">Mobile & Web UX</span>
-                                <span class="skill-tag">Interaction Design</span>
+                        <div class="mt-6 sm:mt-8">
+                            <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Core Skills</h3>
+                            <div class="flex flex-wrap gap-2.5 sm:gap-3">
+                                <span class="skill-tag text-sm sm:text-base">Full Adobe Suite</span>
+                                <span class="skill-tag text-sm sm:text-base">Figma</span>
+                                <span class="skill-tag text-sm sm:text-base">Wireframing</span>
+                                <span class="skill-tag text-sm sm:text-base">Prototyping (Figma/XD)</span>
+                                <span class="skill-tag text-sm sm:text-base">Design Systems</span>
+                                <span class="skill-tag text-sm sm:text-base">Mobile & Web UI</span>
+                                <span class="skill-tag text-sm sm:text-base">Mobile & Web UX</span>
+                                <span class="skill-tag text-sm sm:text-base">Interaction Design</span>
                             </div>
                         </div>
                     </div>
@@ -184,16 +202,16 @@
             </section>
 
             <!-- Contact Section -->
-            <section id="contact" class="py-16 md:py-24 container mx-auto px-6 max-w-7xl">
+            <section id="contact" class="py-12 sm:py-16 md:py-24 container mx-auto px-6 max-w-7xl">
                 <div class="max-w-3xl mx-auto text-center">
-                    <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Let's Connect</h2>
-                    <p class="text-xl text-gray-600 mb-10">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">Let's Connect</h2>
+                    <p class="text-base sm:text-xl text-gray-600 mb-8 sm:mb-10">
                         I'm open to new opportunities and collaborations.<br>
                         Whether you need a full-time lead designer or consultation on a challenging Design problem, drop me a line.
                     </p>
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
                         <!-- Email Button -->
-                        <a href="mailto:DinoAgrela@gmail.com" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-xl text-white bg-[#47b1e0] hover:bg-[#00779e] transition">
+                        <a href="mailto:DinoAgrela@gmail.com" class="inline-flex items-center justify-center px-6 sm:px-8 py-3 border border-transparent text-sm sm:text-base font-medium rounded-full shadow-xl text-white bg-[#47b1e0] hover:bg-[#00779e] transition">
                             <svg class="mr-3 h-6 w-6" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 23 23" aria-hidden="true">
                                 <path d="M4 9.00005L10.2 13.65C11.2667 14.45 12.7333 14.45 13.8 13.65L20 9"></path>
                                 <path d="M3 9.17681C3 8.45047 3.39378 7.78123 4.02871 7.42849L11.0287 3.5396C11.6328 3.20402 12.3672 3.20402 12.9713 3.5396L19.9713 7.42849C20.6062 7.78123 21 8.45047 21 9.17681V17C21 18.1046 20.1046 19 19 19H5C3.89543 19 3 18.1046 3 17V9.17681Z"></path>
@@ -202,7 +220,7 @@
                         </a>
                         
                         <!-- Phone Button -->
-                        <a href="tel:+27825617992" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-xl text-white bg-[#47b1e0] hover:bg-[#00779e] transition">
+                        <a href="tel:+27825617992" class="inline-flex items-center justify-center px-6 sm:px-8 py-3 border border-transparent text-sm sm:text-base font-medium rounded-full shadow-xl text-white bg-[#47b1e0] hover:bg-[#00779e] transition">
                             <svg class="mr-3 h-6 w-6" stroke="currentColor" fill="none" stroke-width="9" viewBox="20 0 225 225" aria-hidden="true">
                                 <path d="M176,220C98.80371,220,36,157.19629,36,80A52.06484,52.06484,0,0,1,81.4209,28.41211a12.01552,12.01552,0,0,1,12.47558,7.19141L113.9873,82.48047a11.97729,11.97729,0,0,1-.99023,11.2998L96.36133,119.19922a3.938,3.938,0,0,0-.291,3.86035h.001a80.54061,80.54061,0,0,0,37.19726,37.0293,3.93771,3.93771,0,0,0,3.8711-.31836l25.03515-16.69434a11.96393,11.96393,0,0,1,11.38379-1.0459l46.83789,20.07325a12.01851,12.01851,0,0,1,7.19141,12.4746A52.06486,52.06486,0,0,1,176,220ZM82.89941,36.31934a3.71329,3.71329,0,0,0-.47558.03027A44.04825,44.04825,0,0,0,44,80c0,72.78516,59.21484,132,132,132a44.04828,44.04828,0,0,0,43.65039-38.4248,3.98053,3.98053,0,0,0-2.40625-4.11817L170.4082,149.38379a3.99519,3.99519,0,0,0-3.7959.34863l-25.03515,16.69434A11.96472,11.96472,0,0,1,129.79,167.294a88.58663,88.58663,0,0,1-40.9082-40.72364l.001.001a11.96889,11.96889,0,0,1,.78516-11.75293l16.63574-25.41895a3.99531,3.99531,0,0,0,.33008-3.76855L86.543,38.75586A3.99936,3.99936,0,0,0,82.89941,36.31934Z"></path>
                             </svg>
@@ -211,7 +229,7 @@
                     </div>
 
                     <!-- Social icons -->
-                    <div class="flex justify-center space-x-6 mt-12">
+                    <div class="flex justify-center space-x-6 mt-10 sm:mt-12">
                         <!-- LinkedIn (clear icon) -->
                         <a href="https://www.linkedin.com/in/dinoagrela/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
                             <svg class="w-6 h-6" viewBox="-20 0 300 300" aria-hidden="true" fill="currentColor">
@@ -229,15 +247,15 @@
         <footer class="bg-gray-900 text-white">
             <div class="container mx-auto px-6 max-w-7xl py-12">
                 <div class="flex flex-col md:flex-row justify-between items-center">
-                    <div class="text-xl font-bold mb-4 md:mb-0 cursor-pointer" onclick="scrollToSection('hero')">Dino Agrela</div>
-                    <div class="text-sm text-gray-400">
+                    <div class="text-lg sm:text-xl font-bold mb-4 md:mb-0 cursor-pointer" onclick="scrollToSection('hero')">Dino Agrela</div>
+                    <div class="text-xs sm:text-sm text-gray-400">
                         &copy; <span id="current-year"></span> All rights reserved. | Designed for clarity and speed.
                     </div>
                     <div class="flex space-x-4 mt-4 md:mt-0">
-                        <a href="#work" onclick="handleNavClick(event, 'work')" class="text-sm text-gray-400 hover:text-[#47b1e0] transition">Work</a>
-                        <a href="#brands" onclick="handleNavClick(event, 'brands')" class="text-sm text-gray-400 hover:text-[#47b1e0] transition">Brands</a>
-                        <a href="#about" onclick="handleNavClick(event, 'about')" class="text-sm text-gray-400 hover:text-[#47b1e0] transition">About</a>
-                        <a href="#contact" onclick="handleNavClick(event, 'contact')" class="text-sm text-gray-400 hover:text-[#47b1e0] transition">Contact</a>
+                        <a href="#work" onclick="handleNavClick(event, 'work')" class="text-xs sm:text-sm text-gray-400 hover:text-[#47b1e0] transition">Work</a>
+                        <a href="#brands" onclick="handleNavClick(event, 'brands')" class="text-xs sm:text-sm text-gray-400 hover:text-[#47b1e0] transition">Brands</a>
+                        <a href="#about" onclick="handleNavClick(event, 'about')" class="text-xs sm:text-sm text-gray-400 hover:text-[#47b1e0] transition">About</a>
+                        <a href="#contact" onclick="handleNavClick(event, 'contact')" class="text-xs sm:text-sm text-gray-400 hover:text-[#47b1e0] transition">Contact</a>
                     </div>
                 </div>
             </div>
@@ -390,6 +408,88 @@
 </script>
 
 <script>
+        // History-aware modal navigation baseline
+        (function initHistoryBaseline() {
+            try {
+                const baseUrl = location.pathname + location.search;
+                history.replaceState({ page: 'index' }, '', baseUrl);
+            } catch (e) { /* noop */ }
+        })();
+
+        // Mobile nav toggle
+        function initMobileNav() {
+            const toggleBtn = document.getElementById('mobile-nav-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const iconMenu = document.getElementById('icon-menu');
+            const iconClose = document.getElementById('icon-close');
+            const header = document.querySelector('header');
+
+            if (!toggleBtn || !mobileMenu) return;
+
+            const mql = window.matchMedia('(min-width: 768px)');
+
+            function setTopOffset() {
+                // keep menu anchored just below header height
+                if (header) mobileMenu.style.top = header.offsetHeight + 'px';
+            }
+
+            function setOpen(open) {
+                mobileMenu.classList.toggle('hidden', !open);
+                toggleBtn.setAttribute('aria-expanded', String(open));
+                if (iconMenu && iconClose) {
+                    iconMenu.classList.toggle('hidden', open);
+                    iconClose.classList.toggle('hidden', !open);
+                }
+                if (open) setTopOffset();
+            }
+
+            function isOpen() {
+                return !mobileMenu.classList.contains('hidden');
+            }
+
+            toggleBtn.addEventListener('click', () => {
+                setOpen(!isOpen());
+            });
+
+            // Close when clicking a mobile link
+            mobileMenu.querySelectorAll('a[data-mobile-link]').forEach(a => {
+                a.addEventListener('click', (e) => {
+                    const section = a.getAttribute('data-mobile-link');
+                    setOpen(false);
+                    if (section) {
+                        e.preventDefault();
+                        handleNavClick(e, section);
+                    }
+                });
+            });
+
+            // Close on outside click
+            document.addEventListener('click', (e) => {
+                if (!isOpen()) return;
+                const t = e.target;
+                if (t === toggleBtn || toggleBtn.contains(t)) return;
+                if (t === mobileMenu || mobileMenu.contains(t)) return;
+                setOpen(false);
+            });
+
+            // Close on ESC
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && isOpen()) setOpen(false);
+            });
+
+            // Close when moving to md and up
+            function handleMql(e) { if (e.matches) setOpen(false); }
+            if (typeof mql.addEventListener === 'function') mql.addEventListener('change', handleMql);
+            else if (typeof mql.addListener === 'function') mql.addListener(handleMql);
+
+            // Adjust top on resize (debounced)
+            let rTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(rTimer);
+                rTimer = setTimeout(setTopOffset, 100);
+            });
+        }
+
         async function ensureAllProjectsLoaded() {
             if (typeof ALL_PROJECTS !== 'undefined') return true;
             const candidates = ['/projects.json', '/designer-portfolio/projects.json', '/src/data/projects.json'];
@@ -419,7 +519,7 @@
             card.className = "relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out cursor-pointer group";
             card.onclick = () => openCaseStudy(project.id);
 
-        // NEW: robust accent handling (supports hex or Tailwind class)
+            // Robust accent handling (supports hex or Tailwind class)
             const accent = project.accentColor || 'bg-[#47b1e0]';
             const isHexOnly = typeof accent === 'string' && accent.trim().startsWith('#');
             const badgeClass = isHexOnly ? '' : accent;
@@ -430,7 +530,7 @@
                 <div class="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black/80 to-transparent transition-opacity duration-300">
                     <div class="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                         <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full text-white mb-2 ${badgeClass}" ${badgeStyleAttr}>${project.category}</span>
-                        <h3 class="text-2xl font-bold text-white mb-1 leading-snug">${project.title}</h3>
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-1 leading-snug">${project.title}</h3>
                         <p class="text-gray-300 text-sm">${project.year}</p>
                     </div>
                 </div>
@@ -456,12 +556,12 @@
 
             if (remainingCount > 0 && !isExpanded) {
                 actions.innerHTML += `
-                    <button onclick="handleShowMore()" class="inline-flex items-center justify-center px-6 py-3 border border-[#47b1e0] text-base font-medium rounded-full text-[#47b1e0] hover:bg-[#ebfdff] transition">
+                    <button onclick="handleShowMore()" class="inline-flex items-center justify-center px-6 py-3 border border-[#47b1e0] text-sm sm:text-base font-medium rounded-full text-[#47b1e0] hover:bg-[#ebfdff] transition">
                         Show All ${totalProjects} Projects
                     </button>`;
             } else if (isExpanded && totalProjects > initialLimit) {
                 actions.innerHTML += `
-                    <button onclick="handleCollapse()" class="inline-flex items-center justify-center px-6 py-3 bg-[#47b1e0] border border-[#47b1e0] text-base font-medium rounded-full text-white hover:bg-[#00779e] transition">
+                    <button onclick="handleCollapse()" class="inline-flex items-center justify-center px-6 py-3 bg-[#47b1e0] border border-[#47b1e0] text-sm sm:text-base font-medium rounded-full text-white hover:bg-[#00779e] transition">
                         Show Less
                     </button>`;
             }
@@ -513,8 +613,8 @@
                 return `
                     <div id="${section.id}" class="group pt-2">
                         <p class="text-sm font-semibold text-[#47b1e0] mb-2">Section ${sectionNum}</p>
-                        <h2 class="text-4xl font-extrabold mb-6 text-gray-900">${displayTitle}</h2>
-                        <p class="text-lg text-gray-700 leading-relaxed mb-8">${section.content || ''}</p>
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-6 text-gray-900">${displayTitle}</h2>
+                        <p class="text-base sm:text-lg text-gray-700 leading-relaxed mb-8">${section.content || ''}</p>
                         ${mediaHTML}
                     </div>`;
             }).join('');
@@ -522,7 +622,7 @@
             const navLinksHTML = (caseStudy.sections || []).map((section, i) => {
                 const label = titleWithoutIndex(section.title || `Section ${String(i + 1).padStart(2, '0')}`);
                 return `
-                <a href="#${section.id}" onclick="event.preventDefault(); document.getElementById('${section.id}').scrollIntoView({ behavior: 'smooth' });" class="text-gray-600 hover:text-[#47b1e0] transition">
+                <a href="#${section.id}" onclick="event.preventDefault(); document.getElementById('${section.id}').scrollIntoView({ behavior: 'smooth' });" class="text-sm sm:text-base text-gray-600 hover:text-[#47b1e0] transition">
                     ${label}
                 </a>`;
             }).join('');
@@ -536,23 +636,23 @@
             return `
                 <div class="container mx-auto px-6 max-w-7xl modal-content">
                     <div class="sticky top-0 z-10 bg-white/95 backdrop-blur-sm py-4 border-b border-gray-200 flex justify-between items-center">
-                        <button onclick="closeCaseStudy()" class="flex items-center text-[#47b1e0] hover:text-[#00779e] transition duration-300 font-semibold text-base md:text-lg">
+                        <button onclick="goBackFromCaseStudy()" class="flex items-center text-[#47b1e0] hover:text-[#00779e] transition duration-300 font-semibold text-sm sm:text-base">
                             <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
                             Back to Work Index
                         </button>
                         <nav class="hidden sm:flex space-x-4 text-sm">${navLinksHTML}</nav>
                     </div>
-                    <div class="pt-12 pb-24 max-w-5xl mx-auto">
-                        <header class="text-center mb-16">
-                            <span class="text-sm font-medium text-gray-500 uppercase tracking-wider">${category} - ${year}</span>
-                            <h1 id="modal-title" class="text-5xl md:text-7xl font-black mt-3 mb-6 leading-tight text-gray-900">${title}</h1>
-                            <p class="text-xl text-gray-600 italic max-w-3xl mx-auto">${caseStudy.brief || ''}</p>
-                            ${detailsHTML ? `<div class="mt-8 flex justify-center space-x-6 text-gray-600 text-sm">${detailsHTML}</div>` : ''}
+                    <div class="pt-10 sm:pt-12 pb-20 sm:pb-24 max-w-5xl mx-auto">
+                        <header class="text-center mb-12 sm:mb-16">
+                            <span class="text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wider">${category} - ${year}</span>
+                            <h1 id="modal-title" class="text-3xl sm:text-5xl md:text-7xl font-black mt-3 mb-5 sm:mb-6 leading-tight text-gray-900">${title}</h1>
+                            <p class="text-base sm:text-xl text-gray-600 italic max-w-3xl mx-auto">${caseStudy.brief || ''}</p>
+                            ${detailsHTML ? `<div class="mt-6 sm:mt-8 flex justify-center space-x-6 text-gray-600 text-sm">${detailsHTML}</div>` : ''}
                         </header>
-                        <div class="space-y-20">${sectionsHTML}</div>
-                        <div class="mt-20 pt-10 border-t border-gray-300 text-center">
-                            <p class="text-2xl font-bold text-gray-800 mb-6">Ready to discuss your next project?</p>
-                            <button onclick="closeCaseStudy()" class="inline-flex items-center justify-center px-8 py-3 bg-[#47b1e0] border border-[#47b1e0] text-base font-medium rounded-full text-white hover:bg-[#00779e] transition">
+                        <div class="space-y-16 sm:space-y-20">${sectionsHTML}</div>
+                        <div class="mt-16 sm:mt-20 pt-8 sm:pt-10 border-t border-gray-300 text-center">
+                            <p class="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6">Ready to discuss your next project?</p>
+                            <button onclick="goBackFromCaseStudy()" class="inline-flex items-center justify-center px-6 sm:px-8 py-3 bg-[#47b1e0] border border-[#47b1e0] text-sm sm:text-base font-medium rounded-full text-white hover:bg-[#00779e] transition">
                                 Back to Index
                             </button>
                         </div>
@@ -560,17 +660,8 @@
                 </div>`;
         }
 
-        function openCaseStudy(projectId) {
-            if (isModalAnimating) return; isModalAnimating = true;
-            window.scrollPosition = window.scrollY; cardToScrollTo = projectId;
-            const modal = document.getElementById('case-study-modal');
-            const mainContent = document.getElementById('main-content-wrapper');
-            modal.innerHTML = getCaseStudyHTML(projectId); modal.style.display = 'block';
-            document.body.classList.add('modal-open');
-            mainContent.classList.add('opacity-50', 'pointer-events-none');
-            setTimeout(() => { modal.classList.remove('translate-x-full'); isModalAnimating = false; }, 10);
-        }
-        function closeCaseStudy() {
+        // UI-only close (used by popstate)
+        function closeCaseStudyUI() {
             if (isModalAnimating) return; isModalAnimating = true;
             const modal = document.getElementById('case-study-modal');
             const mainContent = document.getElementById('main-content-wrapper');
@@ -579,13 +670,59 @@
                 document.body.classList.remove('modal-open');
                 mainContent.classList.remove('opacity-50', 'pointer-events-none');
                 modal.style.display = 'none';
-                const cardElement = document.getElementById(`project-card-${cardToScrollTo}`);
+                const cardElement = cardToScrollTo ? document.getElementById(`project-card-${cardToScrollTo}`) : null;
                 if (cardElement) cardElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 cardToScrollTo = null; isModalAnimating = false;
             }, 300);
         }
 
+        // Button handler: behave like native back
+        function goBackFromCaseStudy() {
+            try { history.back(); }
+            catch { closeCaseStudyUI(); }
+        }
+
+        function openCaseStudy(projectId) {
+            if (isModalAnimating) return; isModalAnimating = true;
+
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            const iconMenu = document.getElementById('icon-menu');
+            const iconClose = document.getElementById('icon-close');
+            const toggleBtn = document.getElementById('mobile-nav-toggle');
+            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
+                if (iconMenu && iconClose) { iconMenu.classList.remove('hidden'); iconClose.classList.add('hidden'); }
+            }
+
+            // Push a modal state so hardware back closes the modal
+            try {
+                history.pushState({ page: 'case', projectId }, '', `#${projectId}`);
+            } catch {}
+
+            window.scrollPosition = window.scrollY;
+            cardToScrollTo = projectId;
+
+            const modal = document.getElementById('case-study-modal');
+            const mainContent = document.getElementById('main-content-wrapper');
+            modal.innerHTML = getCaseStudyHTML(projectId);
+            modal.style.display = 'block';
+            document.body.classList.add('modal-open');
+            mainContent.classList.add('opacity-50', 'pointer-events-none');
+            setTimeout(() => { modal.classList.remove('translate-x-full'); isModalAnimating = false; }, 10);
+        }
+
+        // Back button handling: close modal instead of leaving the site
+        window.addEventListener('popstate', () => {
+            const modal = document.getElementById('case-study-modal');
+            const isOpen = modal && modal.style.display !== 'none';
+            if (isOpen) closeCaseStudyUI();
+        });
+
         window.onload = async function() {
+            initMobileNav();
+
             const loaded = await ensureAllProjectsLoaded();
             if (!loaded || typeof ALL_PROJECTS === 'undefined') {
                 console.error("CRITICAL ERROR: projects data not loaded. Check that projects.json exists.");
@@ -601,7 +738,8 @@
                 el.className = "text-gray-500 hover:text-[#47b1e0] transition duration-300 p-3 rounded-full hover:bg-[#ebfdff] inline-block";
             });
             document.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape' && document.getElementById('case-study-modal').style.display !== 'none') closeCaseStudy();
+                // ESC closes modal without affecting history; mobile init also listens for ESC to close menu
+                if (event.key === 'Escape' && document.getElementById('case-study-modal').style.display !== 'none') closeCaseStudyUI();
             });
             let resizeTimer;
             window.addEventListener('resize', () => {
